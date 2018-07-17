@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="res">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="src\platform">
+      <UniqueIdentifier>{76813f06-69c9-45a5-8ec3-128dc7366c9a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\platform\windows">
+      <UniqueIdentifier>{86956799-bc93-41cf-ba02-92a4c6b3c273}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\utility">
+      <UniqueIdentifier>{2a728f95-16d9-4aa0-b7f4-d3579703a78d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\utility\math">
+      <UniqueIdentifier>{8843b3e5-3408-43d9-93af-35b2a19df124}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\common">
+      <UniqueIdentifier>{3860481e-a07e-445e-9127-4cb06e32b34d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\resource">
+      <UniqueIdentifier>{1780f141-3cbb-43e8-98b1-698e370d91cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\platform\android">
+      <UniqueIdentifier>{8511be22-6a00-4678-8425-c0ae3795a4c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\platform\ios">
+      <UniqueIdentifier>{bb06f93b-79c5-43b6-8218-505be7265f10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\utility\io">
+      <UniqueIdentifier>{e3ba621e-6aec-4a2e-b545-08a99bab9bab}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\platform\Device.cpp">
+      <Filter>src\platform</Filter>
+    </ClCompile>
+    <ClCompile Include="src\utility\math\math_matrix.cpp">
+      <Filter>src\utility\math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\utility\math\math_vector.cpp">
+      <Filter>src\utility\math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\utility\math\mathf.cpp">
+      <Filter>src\utility\math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\xlog.cpp">
+      <Filter>src\common</Filter>
+    </ClCompile>
+    <ClCompile Include="src\resource\resources.cpp">
+      <Filter>src\resource</Filter>
+    </ClCompile>
+    <ClCompile Include="src\resource\texture2d.cpp">
+      <Filter>src\resource</Filter>
+    </ClCompile>
+    <ClCompile Include="src\platform\windows\window_device.cpp">
+      <Filter>src\platform\windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\object.cpp">
+      <Filter>src\common</Filter>
+    </ClCompile>
+    <ClCompile Include="src\utility\string_ext.cpp">
+      <Filter>src\utility</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game_entry.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\utility\io\data_stream.cpp">
+      <Filter>src\utility\io</Filter>
+    </ClCompile>
+    <ClCompile Include="src\utility\io\stream.cpp">
+      <Filter>src\utility\io</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\platform\Device.h">
+      <Filter>src\platform</Filter>
+    </ClInclude>
+    <ClInclude Include="src\utility\math\math_matrix.h">
+      <Filter>src\utility\math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\utility\math\math_vector.h">
+      <Filter>src\utility\math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\utility\math\mathf.h">
+      <Filter>src\utility\math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\xlog.h">
+      <Filter>src\common</Filter>
+    </ClInclude>
+    <ClInclude Include="src\resource\resource_def.h">
+      <Filter>src\resource</Filter>
+    </ClInclude>
+    <ClInclude Include="src\resource\texture2d.h">
+      <Filter>src\resource</Filter>
+    </ClInclude>
+    <ClInclude Include="src\platform\windows\window_device.h">
+      <Filter>src\platform\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="src\platform\platform_def.h">
+      <Filter>src\platform</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\object.h">
+      <Filter>src\common</Filter>
+    </ClInclude>
+    <ClInclude Include="src\utility\string_ext.h">
+      <Filter>src\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="src\resource\resources.h">
+      <Filter>src\resource</Filter>
+    </ClInclude>
+    <ClInclude Include="src\utility\io\data_stream.h">
+      <Filter>src\utility\io</Filter>
+    </ClInclude>
+    <ClInclude Include="src\utility\io\stream.h">
+      <Filter>src\utility\io</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\fish_4.pkm">
+      <Filter>res</Filter>
+    </None>
+    <None Include="res\SemiAlpha.pkm">
+      <Filter>res</Filter>
+    </None>
+  </ItemGroup>
+</Project>
