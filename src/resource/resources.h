@@ -1,10 +1,18 @@
-#ifndef __XENGINE_RESOURCE_MANAGER_H__
-#define __XENGINE_RESOURCE_MANAGER_H__
+/*!
+ * FileName: 	Resources.h
+ * Copyright:	TalosGame Studio Co., Ltd
+ * Data: 		2018/07/17 22:33
+ * Author: 		miller
+ * Desc:		
+ */
+ 
+#ifndef __T2D_ENGINE_RESOURCES_H__
+#define __T2D_ENGINE_RESOURCES_H__
 
 #include <unordered_map>
 #include <string>
 
-#include "common/object.h"
+#include "core/object.h"
 #include "platform/platform_def.h"
 #include "utility/io/data_stream.h"
 #include "texture2d.h"
@@ -41,11 +49,10 @@ private:
 
 	ubool contains(const char *name);
 
-
 private:
 	static Resources *instance_;
 
 	std::unordered_map <std::string, Object *> assets_;	
 };
 
-#endif // __XENGINE_RESOURCE_MANAGER_H__
+#endif // __T2D_ENGINE_RESOURCES_H__

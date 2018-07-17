@@ -15,6 +15,9 @@
 *.mod
 *.smod
 
+# debug folder
+/x64/Debug/**/*
+
 # Executables
 *.exe
 *.out

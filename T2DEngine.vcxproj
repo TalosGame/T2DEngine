@@ -132,8 +132,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\common\object.cpp" />
-    <ClCompile Include="src\common\xlog.cpp" />
+    <ClCompile Include="src\core\mesh.cpp" />
+    <ClCompile Include="src\core\object.cpp" />
     <ClCompile Include="src\game_entry.cpp" />
     <ClCompile Include="src\platform\Device.cpp" />
     <ClCompile Include="src\platform\windows\window_device.cpp" />
@@ -141,14 +141,15 @@
     <ClCompile Include="src\resource\texture2d.cpp" />
     <ClCompile Include="src\utility\io\data_stream.cpp" />
     <ClCompile Include="src\utility\io\stream.cpp" />
+    <ClCompile Include="src\utility\log\xlog.cpp" />
     <ClCompile Include="src\utility\math\mathf.cpp" />
     <ClCompile Include="src\utility\math\math_matrix.cpp" />
     <ClCompile Include="src\utility\math\math_vector.cpp" />
     <ClCompile Include="src\utility\string_ext.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\common\object.h" />
-    <ClInclude Include="src\common\xlog.h" />
+    <ClInclude Include="src\core\mesh.h" />
+    <ClInclude Include="src\core\object.h" />
     <ClInclude Include="src\platform\Device.h" />
     <ClInclude Include="src\platform\platform_def.h" />
     <ClInclude Include="src\platform\windows\window_device.h" />
@@ -157,6 +158,7 @@
     <ClInclude Include="src\resource\texture2d.h" />
     <ClInclude Include="src\utility\io\data_stream.h" />
     <ClInclude Include="src\utility\io\stream.h" />
+    <ClInclude Include="src\utility\log\xlog.h" />
     <ClInclude Include="src\utility\math\mathf.h" />
     <ClInclude Include="src\utility\math\math_matrix.h" />
     <ClInclude Include="src\utility\math\math_vector.h" />

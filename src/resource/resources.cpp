@@ -1,8 +1,15 @@
-#include "resources.h"
+/*!
+ * FileName: 	Resources.cpp
+ * Copyright:	TalosGame Studio Co., Ltd
+ * Data: 		2018/07/17 22:34
+ * Author: 		miller
+ * Desc:		
+ */
 
+#include "resources.h"
 #include "resource_def.h"
 #include "utility/string_ext.h"
-#include "common/xlog.h"
+#include "utility/log/xlog.h"
 #include "utility/io/data_stream.h"
 
 Resources *Resources::instance_ = nullptr;
@@ -50,10 +57,10 @@ void *Resources::load_texture(const char *name){
 	}
 
 	Texture2D *tex = new Texture2D();
-	tex->LoadData(data, header.width, header.height, header.get_size(GL_COMPRESSED_RGBA8_ETC2_EAC));
+	if (tex->LoadData(data, header.width, header.height, header.get_size(GL_COMPRESSED_RGBA8_ETC2_EAC))){
+		
+	}
 
-	int i = 0;
-	i++;
 
 	return nullptr;
 }

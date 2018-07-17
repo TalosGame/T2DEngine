@@ -21,9 +21,6 @@
     <Filter Include="src\utility\math">
       <UniqueIdentifier>{8843b3e5-3408-43d9-93af-35b2a19df124}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\common">
-      <UniqueIdentifier>{3860481e-a07e-445e-9127-4cb06e32b34d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\resource">
       <UniqueIdentifier>{1780f141-3cbb-43e8-98b1-698e370d91cb}</UniqueIdentifier>
     </Filter>
@@ -35,6 +32,12 @@
     </Filter>
     <Filter Include="src\utility\io">
       <UniqueIdentifier>{e3ba621e-6aec-4a2e-b545-08a99bab9bab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\core">
+      <UniqueIdentifier>{63c50f34-2837-4b1d-be57-2fae12702cc4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\utility\log">
+      <UniqueIdentifier>{cab5c064-2075-44bf-830d-5dcedb75ef87}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -50,9 +53,6 @@
     <ClCompile Include="src\utility\math\mathf.cpp">
       <Filter>src\utility\math</Filter>
     </ClCompile>
-    <ClCompile Include="src\common\xlog.cpp">
-      <Filter>src\common</Filter>
-    </ClCompile>
     <ClCompile Include="src\resource\resources.cpp">
       <Filter>src\resource</Filter>
     </ClCompile>
@@ -61,9 +61,6 @@
     </ClCompile>
     <ClCompile Include="src\platform\windows\window_device.cpp">
       <Filter>src\platform\windows</Filter>
-    </ClCompile>
-    <ClCompile Include="src\common\object.cpp">
-      <Filter>src\common</Filter>
     </ClCompile>
     <ClCompile Include="src\utility\string_ext.cpp">
       <Filter>src\utility</Filter>
@@ -76,6 +73,15 @@
     </ClCompile>
     <ClCompile Include="src\utility\io\stream.cpp">
       <Filter>src\utility\io</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\object.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\utility\log\xlog.cpp">
+      <Filter>src\utility\log</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\mesh.cpp">
+      <Filter>src\core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -91,9 +97,6 @@
     <ClInclude Include="src\utility\math\mathf.h">
       <Filter>src\utility\math</Filter>
     </ClInclude>
-    <ClInclude Include="src\common\xlog.h">
-      <Filter>src\common</Filter>
-    </ClInclude>
     <ClInclude Include="src\resource\resource_def.h">
       <Filter>src\resource</Filter>
     </ClInclude>
@@ -106,9 +109,6 @@
     <ClInclude Include="src\platform\platform_def.h">
       <Filter>src\platform</Filter>
     </ClInclude>
-    <ClInclude Include="src\common\object.h">
-      <Filter>src\common</Filter>
-    </ClInclude>
     <ClInclude Include="src\utility\string_ext.h">
       <Filter>src\utility</Filter>
     </ClInclude>
@@ -120,6 +120,15 @@
     </ClInclude>
     <ClInclude Include="src\utility\io\stream.h">
       <Filter>src\utility\io</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\object.h">
+      <Filter>src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\utility\log\xlog.h">
+      <Filter>src\utility\log</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\mesh.h">
+      <Filter>src\core</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

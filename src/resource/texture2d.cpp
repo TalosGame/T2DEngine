@@ -2,7 +2,7 @@
 #include <GLES3/gl3.h>
 #include <string>
 #include <string.h>
-#include "common/xlog.h"
+#include "utility/log/xlog.h"
 
 Texture2D::Texture2D() {
 
@@ -12,34 +12,23 @@ Texture2D::~Texture2D(){
 
 }
 
-ubool Texture2D::LoadData(const uint8 *data, uint32 width, uint32 height, GLsizei size1){
-	glEnable(GL_TEXTURE_2D);
-	glGenTextures(1, &id_);
-	glBindTexture(GL_TEXTURE_2D, this->id_);
+ubool Texture2D::LoadData(const uint8 *data, uint32 width, uint32 height, GLsizei size){
+	glGenTextures(1, &texture_id_);
+	glBindTexture(GL_TEXTURE_2D, this->texture_id_);
 
 	this->width_ = width;
 	this->height_ = height;
-
-	int bw = (int)ceil(width / 4);
-	int	bh = (int)ceil(height / 4);
-
-	bw = (this->width_ + 3) / 4;
-	bh = (this->height_ + 3) / 4;
-	//GLsizei size = bw * bh * 16;
-
-	GLsizei size = bw * bh * 16;
 
 // 	const char * extensions = (const char*)glGetString(GL_EXTENSIONS);
 // 	printf("%s", extensions);
 // 	bool support = (strstr(extensions, "GL_COMPRESSED_RGBA8_ETC2_EAC") ? true : false);
 
-	GL_CHECK(glCompressedTexImage2D(GL_TEXTURE_2D, 0, GL_COMPRESSED_RGBA8_ETC2_EAC, this->width_, this->height_, 0, size, data));
-// 	GLenum err = glGetError();
-// 	if (err != GL_NO_ERROR)
-// 	{
-// 		log_error("Texture2D: Error uploading compressed texture glError");
-// 		return FALSE;
-// 	}
+	glCompressedTexImage2D(GL_TEXTURE_2D, 0, GL_COMPRESSED_RGBA8_ETC2_EAC, this->width_, this->height_, 0, size, data);
+	GLenum glError = glGetError();
+	if (glError != GL_NO_ERROR) {
+		log_error("glGetError() = %i (0x%.8x) at %s:%i\n", glError, glError, __FILE__, __LINE__);
+		return FALSE;
+	}
 
 	// Set Texture wrap and filter modes
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);

@@ -1,6 +1,6 @@
 #include "platform/Device.h"
 
-#include "common/xlog.h"
+#include "utility/log/xlog.h"
 #include "resource/resources.h"
 
 #define SCREEN_WIDTH	800

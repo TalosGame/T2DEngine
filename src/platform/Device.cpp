@@ -8,7 +8,7 @@
 
 #include "Device.h"
 
-#include "common/xlog.h"
+#include "utility/log/xlog.h"
 #include "utility/math/mathf.h"
  
 Device::Device(){

@@ -9,7 +9,7 @@
 #include "data_stream.h"
 #include <stdlib.h>
 #include <string.h>
-#include "common/xlog.h"
+#include "utility/log/xlog.h"
 #include "utility/string_ext.h"
 
 DataStream::DataStream(){

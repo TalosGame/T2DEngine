@@ -10,7 +10,7 @@
 #include <math.h>
 
 #include "mathf.h"
-#include "common/xlog.h"
+#include "utility/log/xlog.h"
 
 // 2d vector ///////////////////////////////////
 void vector2_add(Vector2Ptr v1, Vector2Ptr v2, Vector2Ptr ret){

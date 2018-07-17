@@ -7,8 +7,7 @@
  */
  
 #include "window_device.h"
-
-#include "common/xlog.h"
+#include "utility/log/xlog.h"
 
 #ifdef _WIN64
 #define GWL_USERDATA GWLP_USERDATA
