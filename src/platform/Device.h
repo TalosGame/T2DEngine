@@ -24,7 +24,7 @@ public:
 	Device();
 	virtual ~Device();
 
-	ubool set_up_device(uint32 width, uint32 height, uint32 flags);
+	bool set_up_device(uint32 width, uint32 height, uint32 flags);
 
 	void set_game_fps(int fps);
 	int game_fps();
@@ -45,7 +45,7 @@ public:
 	virtual void game_loop() = 0;
 
 protected:
-	virtual ubool init_window() = 0;
+	virtual bool init_window() = 0;
 
 private:
 	EGLint GetContextRenderableType(EGLDisplay eglDisplay);
@@ -55,7 +55,7 @@ protected:
 	uint32 screen_height_;
 	int game_fps_;
 
-	ubool game_running_;
+	bool game_running_;
 
 #ifndef __APPLE__
 	/// Display handle

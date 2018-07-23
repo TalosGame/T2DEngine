@@ -10,18 +10,9 @@
 #define __T2D_ENGINE_PLATFORM_DEF_H__
 
 typedef unsigned char       uint8;
-typedef unsigned char		ubool;
 typedef unsigned short      uint16;
 typedef unsigned int        uint32;
 typedef unsigned long long  uint64;
-
-#ifndef FALSE
-#define FALSE 0
-#endif
-
-#ifndef TRUE
-#define TRUE 1
-#endif
 
 // esCreateWindow flag - RGB color buffer
 #define ES_WINDOW_RGB           0
@@ -33,6 +24,9 @@ typedef unsigned long long  uint64;
 #define ES_WINDOW_STENCIL       4
 // esCreateWindow flat - multi-sample buffer
 #define ES_WINDOW_MULTISAMPLE   8
+
+#define SAFE_DELETE(p)           do { delete (p); (p) = nullptr; } while(0)
+#define SAFE_FREE(p)             do { if(p) { free(p); (p) = nullptr; } } while(0)
 
 #define GL_CHECK(x)                                                                          \
 x;                                                                                           \
@@ -47,7 +41,6 @@ x;                                                                              
 namespace respath {
 	static const char *RES_ROOT_PATH = "res/";
 }
-
 
 ///
 //  Global extern.  The application must declare this function

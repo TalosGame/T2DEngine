@@ -1,12 +1,12 @@
-/**************************************************************
-*  Filename :    mathf.h
-*  Author   :    miller
-*  Data     :    2018/5/24
-*  Desc     :
-**************************************************************/
+/*!
+* FileName: 	mathf.cpp
+* Copyright:	TalosGame Studio Co., Ltd
+* Data: 		2018/07/24 1:36
+* Author: 		miller
+* Desc:
+*/
 
 #include "mathf.h"
-
 #include <math.h>
 
 // storage for our sin cos tables
@@ -78,12 +78,16 @@ float fast_distance_3d(float fx, float fy, float fz){
 	// sort values
 	if (y < x) SWAP(x, y, temp)
 
-	if (z < y) SWAP(y, z, temp)
+		if (z < y) SWAP(y, z, temp)
 
-	if (y < x) SWAP(x, y, temp)
+			if (y < x) SWAP(x, y, temp)
 
-	int dist = (z + 11 * (y >> 5) + (x >> 2));
+				int dist = (z + 11 * (y >> 5) + (x >> 2));
 
 	// compute distance with 8% error
 	return((float)(dist >> 10));
+}
+
+bool approximately(float a, float b, float epsilon){
+	return (fabs(a - b) <= epsilon);
 }

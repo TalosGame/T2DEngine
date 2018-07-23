@@ -20,13 +20,13 @@ public:
 	virtual void game_loop();
 
 protected:
-	virtual ubool init_window();
+	virtual bool init_window();
 };
 
 // private function define ///////////////////////////////////////////////
-static ubool WinCreate(Device *device, const char *title);
+static bool WinCreate(Device *device, const char *title);
 static LRESULT CALLBACK window_proc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
-static void center_window(EGLNativeWindowType hwnd, RECT *client_rect, int width, int height);
+static void center_window(EGLNativeWindowType hwnd, RECT *client_rect, uint32 width, uint32 height);
 
 //////////////////////////////////////////////////////////////////////////
 

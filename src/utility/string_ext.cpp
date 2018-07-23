@@ -47,3 +47,12 @@ size_t strcat_ext(char **dst_out, int num, ...){
     *dst_out = dst;
     return len;
 }
+
+std::string &replace(std::string &str, const std::string &old_value, const std::string &new_value){
+	std::string::size_type pos = 0;
+	if ((pos = str.find(old_value)) != std::string::npos){
+		str.replace(pos, old_value.length(), new_value);
+	}
+
+	return str;
+}

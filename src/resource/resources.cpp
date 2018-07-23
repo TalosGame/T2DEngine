@@ -10,7 +10,6 @@
 #include "resource_def.h"
 #include "utility/string_ext.h"
 #include "utility/log/xlog.h"
-#include "utility/io/data_stream.h"
 
 Resources *Resources::instance_ = nullptr;
 
@@ -65,38 +64,38 @@ void *Resources::load_texture(const char *name){
 	return nullptr;
 }
 
-ubool Resources::is_etc2_format(DataStream *ds){
+bool Resources::is_etc2_format(DataStream *ds){
 	if (ds->buffer_len() < etc2_pkm::ETC2_PKM_HEADER_SIZE) {
-		return FALSE;
+		return false;
 	}
 
 	if (memcmp(ds->buffer(), etc2_pkm::ETC2_PKM_MAGIC, sizeof(etc2_pkm::ETC2_PKM_MAGIC))){
-		return FALSE;
+		return false;
 	}
 
-	return TRUE;
+	return true;
 }
 
-ubool Resources::read_etc2_head(DataStream *ds, ETC2HeaderPtr header_ptr){
+bool Resources::read_etc2_head(DataStream *ds, ETC2HeaderPtr header_ptr){
 	ds->seek(etc2_pkm::ETC2_PKM_FORMAT_OFFSET);
 
-	ds->read_uint16(&header_ptr->format, TRUE);
-	ds->read_uint16(&header_ptr->encoded_width, TRUE);
-	ds->read_uint16(&header_ptr->encoded_height, TRUE);
-	ds->read_uint16(&header_ptr->width, TRUE);
-	ds->read_uint16(&header_ptr->height, TRUE);
+	ds->read_uint16(&header_ptr->format, true);
+	ds->read_uint16(&header_ptr->encoded_width, true);
+	ds->read_uint16(&header_ptr->encoded_height, true);
+	ds->read_uint16(&header_ptr->width, true);
+	ds->read_uint16(&header_ptr->height, true);
 
 	return (header_ptr->format == ETC2_RGB_NO_MIPMAPS || header_ptr->format == ETC2_RGBA_NO_MIPMAPS) &&
 		header_ptr->encoded_width >= header_ptr->width && header_ptr->encoded_width - header_ptr->width < 4 &&
 		header_ptr->encoded_height >= header_ptr->height && header_ptr->encoded_height - header_ptr->height < 4;
 }
 
-ubool Resources::contains(const char *name){
+bool Resources::contains(const char *name){
 	if (assets_.find(name) != assets_.end()){
-		return TRUE;
+		return true;
 	}
 
-	return FALSE;
+	return false;
 }
 
 /*

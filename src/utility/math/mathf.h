@@ -20,10 +20,11 @@
 #define PI_DIV_4 (0.785398163f)
 
 // defines for small numbers
-#define EPSILON_E3 (float)(1E-3)  // 10^-3  0.0001
-#define EPSILON_E4 (float)(1E-4)  // 10^-4  0.00001
-#define EPSILON_E5 (float)(1E-5)  // 10^-5  0.000001
-#define EPSILON_E6 (float)(1E-6)  // 10^-6  0.0000001
+#define EPSILON_E2 (float)(1E-2)  // 10^-2	0.01
+#define EPSILON_E3 (float)(1E-3)  // 10^-3  0.001
+#define EPSILON_E4 (float)(1E-4)  // 10^-4  0.0001
+#define EPSILON_E5 (float)(1E-5)  // 10^-5  0.00001
+#define EPSILON_E6 (float)(1E-6)  // 10^-6  0.000001
 
 #define MIN(a, b) (((a) < (b)) ? (a) : (b))
 #define MAX(a, b) (((a) > (b)) ? (a) : (b))
@@ -41,6 +42,8 @@ float fast_cos(float angle);
 
 int fast_distance_2d(int x, int y);
 float fast_distance_3d(float x, float y, float z);
+
+bool approximately(float a, float b, float epsilon = EPSILON_E3);
 
 // private function define
 static void build_sin_cos_tables(void);

@@ -15,14 +15,14 @@ Device::Device(){
 	this->update = nullptr;
 	this->draw = nullptr;
 	this->exit = nullptr;
-	this->game_running_ = FALSE;
+	this->game_running_ = false;
 }
 
 Device::~Device(){
 
 }
 
-ubool Device::set_up_device(uint32 width, uint32 height, uint32 flags) {
+bool Device::set_up_device(uint32 width, uint32 height, uint32 flags) {
 	// init math lib
 	math_init();
 
@@ -39,17 +39,17 @@ ubool Device::set_up_device(uint32 width, uint32 height, uint32 flags) {
 	EGLint contextAttribs[] = { EGL_CONTEXT_CLIENT_VERSION, 3, EGL_NONE };
 
 	if (!this->init_window()){
-		return FALSE;
+		return false;
 	}
 
 	this->eglDisplay_ = eglGetDisplay(this->eglNativeDisplay_);
 	if (this->eglDisplay_ == EGL_NO_DISPLAY){
-		return FALSE;
+		return false;
 	}
 
 	// Initialize EGL
 	if (!eglInitialize(this->eglDisplay_, &majorVersion, &minorVersion)){
-		return FALSE;
+		return false;
 	}
 
 	EGLint numConfigs = 0;
@@ -71,12 +71,12 @@ ubool Device::set_up_device(uint32 width, uint32 height, uint32 flags) {
 	// Choose config
 	if (!eglChooseConfig(this->eglDisplay_, attribList, &config, 1, &numConfigs))
 	{
-		return FALSE;
+		return false;
 	}
 
 	if (numConfigs < 1)
 	{
-		return FALSE;
+		return false;
 	}
 
 #ifdef ANDROID
@@ -106,7 +106,7 @@ ubool Device::set_up_device(uint32 width, uint32 height, uint32 flags) {
    }
 #endif // __APPLE__
 
-   return TRUE;
+   return true;
 }
 
 //	Check whether EGL_KHR_create_context extension is supported.  

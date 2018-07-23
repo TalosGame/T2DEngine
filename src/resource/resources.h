@@ -11,10 +11,8 @@
 
 #include <unordered_map>
 #include <string>
-
-#include "core/object.h"
-#include "platform/platform_def.h"
 #include "utility/io/data_stream.h"
+#include "core/object.h"
 #include "texture2d.h"
 
 class Resources
@@ -44,10 +42,10 @@ private:
 	~Resources();
 
 	void *load_texture(const char *name);
-	ubool is_etc2_format(DataStream *ds);
-	ubool read_etc2_head(DataStream *ds, ETC2HeaderPtr header_ptr);
+	bool is_etc2_format(DataStream *ds);
+	bool read_etc2_head(DataStream *ds, ETC2HeaderPtr header_ptr);
 
-	ubool contains(const char *name);
+	bool contains(const char *name);
 
 private:
 	static Resources *instance_;

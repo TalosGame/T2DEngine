@@ -12,7 +12,7 @@ Texture2D::~Texture2D(){
 
 }
 
-ubool Texture2D::LoadData(const uint8 *data, uint32 width, uint32 height, GLsizei size){
+bool Texture2D::LoadData(const uint8 *data, uint32 width, uint32 height, GLsizei size){
 	glGenTextures(1, &texture_id_);
 	glBindTexture(GL_TEXTURE_2D, this->texture_id_);
 
@@ -27,7 +27,7 @@ ubool Texture2D::LoadData(const uint8 *data, uint32 width, uint32 height, GLsize
 	GLenum glError = glGetError();
 	if (glError != GL_NO_ERROR) {
 		log_error("glGetError() = %i (0x%.8x) at %s:%i\n", glError, glError, __FILE__, __LINE__);
-		return FALSE;
+		return false;
 	}
 
 	// Set Texture wrap and filter modes
@@ -37,7 +37,7 @@ ubool Texture2D::LoadData(const uint8 *data, uint32 width, uint32 height, GLsize
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
 	glBindTexture(GL_TEXTURE_2D, 0);
-	return TRUE;
+	return true;
 }
 
 uint32 Texture2D::Id(){

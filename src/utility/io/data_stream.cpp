@@ -1,5 +1,5 @@
 /*!
- * Filename: 	FileStream.cpp
+ * Filename: 	DataStream.cpp
  * Copyright:   TalosGame Studio Co., Ltd.
  * Data:	    2018/07/08 0:36
  * Author 		miller
@@ -23,16 +23,16 @@ DataStream::~DataStream(){
 	this->buffer_ = nullptr;
 }
 
-ubool DataStream::read_from_file(const char *name){
+bool DataStream::read_from_file(const char *name){
 	char *path = search_asset_path(name);
 	if (path == nullptr){
-		return FALSE;
+		return false;
 	}
 
 	FILE *fp = nullptr;
 	if ((fp = fopen(path, "rb")) == nullptr) {
 		log_error("Couldn't open resource file! path:%s", path);
-		return FALSE;
+		return false;
 	}
 
 	fseek(fp, 0, SEEK_END);
@@ -47,10 +47,10 @@ ubool DataStream::read_from_file(const char *name){
 
 	if (buffer_ == nullptr || buffer_len_ < size){
 		log_error("Read data from file name:%s error!\n", name);
-		return FALSE;
+		return false;
 	}
 
-	return TRUE;
+	return true;
 }
 
 uint8 *DataStream::buffer(){
@@ -77,21 +77,21 @@ void DataStream::seek(size_t len){
 	this->offset_ += len;
 }
 
-ubool DataStream::read_byte(uint8 *value, size_t len){
+bool DataStream::read_byte(uint8 *value, size_t len){
 	if (!check_data(len)){
-		return FALSE;
+		return false;
 	}
 
 	memcpy(value, buffer_ + offset_, len);
 	offset_ += len;
 
-	return TRUE;
+	return true;
 }
 
-ubool DataStream::read_byte(uint8 **value, size_t len){
+bool DataStream::read_byte(uint8 **value, size_t len){
 	size_t read_len = (len == -1 ? buffer_len_ - offset_ : len );
 	if (!check_data(read_len)){
-		return FALSE;
+		return false;
 	}
 
 	uint8 *data = (uint8 *)malloc(sizeof(uint8) * read_len);
@@ -100,25 +100,25 @@ ubool DataStream::read_byte(uint8 **value, size_t len){
 	*value = data;
 	offset_ += read_len;
 
-	return TRUE;
+	return true;
 }
 
-ubool DataStream::read_uint16(uint16 *value, ubool big_endian){
+bool DataStream::read_uint16(uint16 *value, bool big_endian){
 	if (!check_data(2)){
-		return FALSE;
+		return false;
 	}
 
 	uint16 ret = 0;
 	if (big_endian){
 		*value = (buffer_[offset_] << 8) | buffer_[offset_ + 1];
 		offset_ += 2;
-		return TRUE;
+		return true;
 	}
 
 	*value = (buffer_[offset_ + 1] << 8) | buffer_[offset_];
 	offset_ += 2;
 
-	return TRUE;
+	return true;
 }
 
 //private function////////////////////////////////////////////////////////
@@ -134,13 +134,13 @@ char *DataStream::search_asset_path(const char *name){
 	return path;
 }
 
-ubool DataStream::check_data(size_t len){
+bool DataStream::check_data(size_t len){
 	if (len > buffer_len_ - offset_){
 		log_error("Read bytes error! len=%zu", len);
-		return FALSE;
+		return false;
 	}
 
-	return TRUE;
+	return true;
 }
 
 //////////////////////////////////////////////////////////////////////////

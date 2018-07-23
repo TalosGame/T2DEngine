@@ -39,6 +39,12 @@
     <Filter Include="src\utility\log">
       <UniqueIdentifier>{cab5c064-2075-44bf-830d-5dcedb75ef87}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\renderer">
+      <UniqueIdentifier>{35d6efaa-d777-4994-a078-032e8444ea86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\shaders">
+      <UniqueIdentifier>{8cf83fd5-d4c6-4f74-8fc7-3d0670a5a403}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\platform\Device.cpp">
@@ -74,14 +80,26 @@
     <ClCompile Include="src\utility\io\stream.cpp">
       <Filter>src\utility\io</Filter>
     </ClCompile>
-    <ClCompile Include="src\core\object.cpp">
-      <Filter>src\core</Filter>
-    </ClCompile>
     <ClCompile Include="src\utility\log\xlog.cpp">
       <Filter>src\utility\log</Filter>
     </ClCompile>
+    <ClCompile Include="src\core\color.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\material.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
     <ClCompile Include="src\core\mesh.cpp">
       <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\object.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\utility\io\file_stream.cpp">
+      <Filter>src\utility\io</Filter>
+    </ClCompile>
+    <ClCompile Include="src\renderer\shader.cpp">
+      <Filter>src\renderer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -121,14 +139,26 @@
     <ClInclude Include="src\utility\io\stream.h">
       <Filter>src\utility\io</Filter>
     </ClInclude>
-    <ClInclude Include="src\core\object.h">
-      <Filter>src\core</Filter>
-    </ClInclude>
     <ClInclude Include="src\utility\log\xlog.h">
       <Filter>src\utility\log</Filter>
     </ClInclude>
+    <ClInclude Include="src\core\color.h">
+      <Filter>src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\material.h">
+      <Filter>src\core</Filter>
+    </ClInclude>
     <ClInclude Include="src\core\mesh.h">
       <Filter>src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\object.h">
+      <Filter>src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\utility\io\file_stream.h">
+      <Filter>src\utility\io</Filter>
+    </ClInclude>
+    <ClInclude Include="src\renderer\shader.h">
+      <Filter>src\renderer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -11,7 +11,7 @@ public:
     Texture2D();
     ~Texture2D();
 
-	ubool LoadData(const uint8 *data, uint32 width, uint32 height, GLsizei size);
+	bool LoadData(const uint8 *data, uint32 width, uint32 height, GLsizei size);
 
     uint32 Id();
 

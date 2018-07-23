@@ -8,6 +8,7 @@
  
 #include "window_device.h"
 #include "utility/log/xlog.h"
+#include "core/color.h"
 
 #ifdef _WIN64
 #define GWL_USERDATA GWLP_USERDATA
@@ -21,14 +22,14 @@ WindowDevice::~WindowDevice(){
 
 }
 
-ubool WindowDevice::init_window() {
+bool WindowDevice::init_window() {
 	return WinCreate(this, "");
 }
 
 void WindowDevice::game_loop(){
 	int skip_ticks = 1000 / this->game_fps_;
 	int max_frameskip = 5;
-	this->game_running_ = TRUE;
+	this->game_running_ = true;
 
 	DWORD previous = GetTickCount();
 	DWORD lag = 0;
@@ -42,7 +43,7 @@ void WindowDevice::game_loop(){
 		{
 			if (msg.message == WM_QUIT)
 			{
-				this->game_running_ = FALSE;
+				this->game_running_ = false;
 			}
 			else
 			{
@@ -74,7 +75,7 @@ void WindowDevice::game_loop(){
 	}
 }
 
-ubool WinCreate(Device *device, const char *title){
+bool WinCreate(Device *device, const char *title){
 	WNDCLASS wndclass = { 0 };
 	DWORD    wStyle = 0;
 	HINSTANCE hInstance = GetModuleHandle(NULL);
@@ -95,7 +96,7 @@ ubool WinCreate(Device *device, const char *title){
 
 	if (!RegisterClassEx(&winClass)) {
 		log_error("Register window class error!");
-		return FALSE;
+		return false;
 	}
 
 	int sw = device->screen_width();
@@ -103,7 +104,7 @@ ubool WinCreate(Device *device, const char *title){
 
 	// set the size, but not the position
 	RECT wr = { 0, 0, sw, sh };
-	AdjustWindowRect(&wr, WS_OVERLAPPEDWINDOW, FALSE);
+	AdjustWindowRect(&wr, WS_OVERLAPPEDWINDOW, false);
 
 	EGLNativeWindowType window = nullptr;
 	if(!(window = CreateWindowEx(NULL,
@@ -119,7 +120,7 @@ ubool WinCreate(Device *device, const char *title){
 								device))){
 
 		log_error("Create window error!");
-		return FALSE;
+		return false;
 	}
 
 	center_window(window, &wr, sw, sh);
@@ -135,10 +136,10 @@ ubool WinCreate(Device *device, const char *title){
 	SetWindowLongPtr(device->eglNativeWindow(), GWL_USERDATA, (LONG)(LONG_PTR)device);
 #endif
 
-	return TRUE;
+	return true;
 }
 
-void center_window(EGLNativeWindowType hwnd, RECT *client_rect, int width, int height) {
+void center_window(EGLNativeWindowType hwnd, RECT *client_rect, uint32 width, uint32 height) {
 	RECT rect;
 	int w = client_rect->right - client_rect->left;
 	int h = client_rect->bottom - client_rect->top;
@@ -150,7 +151,7 @@ void center_window(EGLNativeWindowType hwnd, RECT *client_rect, int width, int h
 			   (rect.bottom - rect.top - h) / 2,
 			   w,
 			   h,
-			   TRUE);
+			   true);
 }
 
 static LRESULT CALLBACK window_proc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam){

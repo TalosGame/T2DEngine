@@ -1,5 +1,5 @@
 /*!
- * Filename: 	FileStream.h
+ * Filename: 	DataStream.h
  * Copyright:   TalosGame Studio Co., Ltd.
  * Data:	    2018/07/08 0:32
  * Author 		miller
@@ -18,7 +18,7 @@ public:
 	DataStream();
 	virtual ~DataStream();
 
-	ubool read_from_file(const char *name);
+	bool read_from_file(const char *name);
 
 	uint8 *buffer();
 	size_t buffer_len();
@@ -28,16 +28,15 @@ public:
 
 	void seek(size_t len);
 
-	ubool read_byte(uint8 *value, size_t len);
-	ubool read_byte(uint8 **value, size_t len = -1);
-	ubool read_uint16(uint16 *value, ubool big_endian = FALSE);
- 
+	bool read_byte(uint8 *value, size_t len);
+	bool read_byte(uint8 **value, size_t len = -1);
+	bool read_uint16(uint16 *value, bool big_endian = false);
+
 private:
 	char *search_asset_path(const char *name);
-	ubool check_data(size_t len);
+	bool check_data(size_t len);
 
 private:
-
 	uint8 *buffer_;
 	size_t buffer_len_;
 	size_t offset_;
