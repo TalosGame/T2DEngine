@@ -9,12 +9,14 @@
 #ifndef __T2D_ENGINE_MATERIAL_H__
 #define __T2D_ENGINE_MATERIAL_H__
  
-#include "renderer/shader.h"
+#include "shader.h"
 
 class Material{
 public:
 	Material(Shader *shader);
 	virtual ~Material();
+
+
 
 private:
 

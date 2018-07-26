@@ -4,9 +4,9 @@
 #include "core/color.h"
 #include "core/mesh.h"
 #include <renderer/shader.h>
-#include "utility/math/math_matrix.h"
-
 #include <vector>
+#include "utility/math/math_matrix.h"
+#include "renderer/t2d_shader.h"
 
 #define SCREEN_WIDTH	800
 #define SCREEN_HEIGHT	640
@@ -14,27 +14,51 @@
 
 //static const Color WHITE = Color( 1, 1, 1, 1 );
 
+Texture2D *texture = nullptr;
+GLuint VBO, VAO, EBO;
+GLuint program_id;
+
 void init(){
 	// Set the viewport
 	glViewport(0, 0, 800, 640);
 
-	//Resources::Instance()->load<Texture2D>("SemiAlpha.pkm");
-	Resources::Instance()->load<Texture2D>("fish_4.pkm");
+	program_id = Shader::load_shader("T2D/BlendVertexColor", eShaderProgram::kBlendVertexColorProgram);
 
-	Color a = Color::WHITE;
-	Color b = Color::WHITE;
+	float vertices[] = {
+		// positions        // colors         // texture coords
+		0.08f, 0.079f, 0.0f,   1.0f, 0.0f, 0.0f, 1.0f, 0.0f, // top right
+		0.08f, -0.079f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f, // bottom right
+		-0.08f, -0.079f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f, // bottom left
+		-0.08f, 0.079f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 0.0f  // top left 
+	};
+	unsigned int indices[] = {
+		0, 1, 3, // first triangle
+		1, 2, 3  // second triangle
+	};
 
-	if (a == b) log_error("same color!\n");
+	glGenVertexArrays(1, &VAO);
+	glGenBuffers(1, &VBO);
+	glGenBuffers(1, &EBO);
+
+	glBindVertexArray(VAO);
+
+	glBindBuffer(GL_ARRAY_BUFFER, VBO);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+
+	// position attribute
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
+	glEnableVertexAttribArray(0);
+	// color attribute
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
+	glEnableVertexAttribArray(1);
+	// texture coord attribute
+	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
+	glEnableVertexAttribArray(2);
 	
-	Shader::load_shader("ssss", "aaa");
-
-	
-
-// 	int *cc = nullptr;
-// 	TD_ASSERT(cc != nullptr, "cc pointer is null");
-
-	int i = 0;
-	i++;
+	texture = (Texture2D *)Resources::Instance()->load<Texture2D>("fish_4.pkm");
 }
 
 void update(){
@@ -46,6 +70,14 @@ void draw(float dt){
 	// Clear the color buffer
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
+
+	// bind Texture
+	glBindTexture(GL_TEXTURE_2D, texture->texture_id());
+
+	glUseProgram(program_id);
+
+	glBindVertexArray(VAO);
+	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 }
 
 void exit(){

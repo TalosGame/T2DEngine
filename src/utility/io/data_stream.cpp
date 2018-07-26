@@ -7,10 +7,11 @@
  */
 
 #include "data_stream.h"
-#include <stdlib.h>
 #include <string.h>
 #include "utility/log/xlog.h"
 #include "utility/string_ext.h"
+#include "utility/application.h"
+#include "platform/platform_macros.h"
 
 DataStream::DataStream(){
 	this->buffer_ = nullptr;
@@ -24,7 +25,7 @@ DataStream::~DataStream(){
 }
 
 bool DataStream::read_from_file(const char *name){
-	char *path = search_asset_path(name);
+	char *path = Application::search_asset_path(name);
 	if (path == nullptr){
 		return false;
 	}
@@ -43,7 +44,7 @@ bool DataStream::read_from_file(const char *name){
 	this->buffer_len_ = fread((char *)buffer_, 1, size, fp);
 	
 	fclose(fp);
-	free(path);
+	SAFE_FREE(path);
 
 	if (buffer_ == nullptr || buffer_len_ < size){
 		log_error("Read data from file name:%s error!\n", name);
@@ -122,18 +123,6 @@ bool DataStream::read_uint16(uint16 *value, bool big_endian){
 }
 
 //private function////////////////////////////////////////////////////////
-char *DataStream::search_asset_path(const char *name){
-	// TODO 根据平台查询资源路径
-	char *path = nullptr;
-	size_t len = strcat_ext(&path, 2, respath::RES_ROOT_PATH, name);
-	if (len < 0){
-		log_error("search asset path error! name:%s\n", name);
-		return nullptr;
-	}
-
-	return path;
-}
-
 bool DataStream::check_data(size_t len){
 	if (len > buffer_len_ - offset_){
 		log_error("Read bytes error! len=%zu", len);

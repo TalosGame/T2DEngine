@@ -12,15 +12,17 @@
 #include <GLES3/gl3.h>
 #include <unordered_map>
 #include <string>
+#include "t2d_shader.h"
 
 enum eShaderType{
 	kVertexShader = 0,
 	kFragmentShader
 };
- 
+
 class Shader{
 public:
-	static GLuint load_shader(const std::string &shader_name, const std::string &file_name);
+	static GLuint load_shader(const std::string &shader_name, eShaderProgram shader_program);
+	static GLuint load_shader(const std::string &shader_name, const std::string &program_name);
 	static bool release_shader(const std::string &shader_name);
 	static bool release_shader(const GLuint program);
 	static void release_all();
@@ -29,13 +31,12 @@ private:
 	Shader();
 	virtual ~Shader();
 
-	static GLuint create_shader(const std::string &name, eShaderType type);
+	static GLuint create_shader(const char *source, eShaderType type);
 	static bool create_program(GLuint vertex_shader, GLuint frag_shader, GLuint *ret);
 
 	static bool contains(const std::string &name);
 
 private:
-	//GLuint program_id_;
 	static std::unordered_map<std::string, GLuint> programs_;
 };
 

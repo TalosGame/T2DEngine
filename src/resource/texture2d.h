@@ -13,7 +13,7 @@ public:
 
 	bool LoadData(const uint8 *data, uint32 width, uint32 height, GLsizei size);
 
-    uint32 Id();
+    uint32 texture_id();
 
 private:
 	uint32 texture_id_;

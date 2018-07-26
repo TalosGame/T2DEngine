@@ -33,7 +33,6 @@ public:
 	bool read_uint16(uint16 *value, bool big_endian = false);
 
 private:
-	char *search_asset_path(const char *name);
 	bool check_data(size_t len);
 
 private:

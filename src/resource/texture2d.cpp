@@ -5,7 +5,7 @@
 #include "utility/log/xlog.h"
 
 Texture2D::Texture2D() {
-
+	this->texture_id_ = 0;
 }
 
 Texture2D::~Texture2D(){
@@ -40,8 +40,8 @@ bool Texture2D::LoadData(const uint8 *data, uint32 width, uint32 height, GLsizei
 	return true;
 }
 
-uint32 Texture2D::Id(){
-	return -1;
+uint32 Texture2D::texture_id(){
+	return this->texture_id_;
 }
 
 /*

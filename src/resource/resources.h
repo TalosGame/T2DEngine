@@ -23,10 +23,9 @@ public:
 	void Destorty();
 
 	template <typename T>
-	void *load(const char *name){
+	Object *load(const char *name){
 		if (typeid(T) == typeid(Texture2D)){
-			load_texture(name);
-			return nullptr;
+			return load_texture(name);
 		}
 
 		if (typeid(T) == typeid(int)){
@@ -41,7 +40,7 @@ private:
 	Resources();
 	~Resources();
 
-	void *load_texture(const char *name);
+	Object *load_texture(const char *name);
 	bool is_etc2_format(DataStream *ds);
 	bool read_etc2_head(DataStream *ds, ETC2HeaderPtr header_ptr);
 

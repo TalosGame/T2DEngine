@@ -29,7 +29,7 @@ void Resources::Destorty(){
 
 }
 
-void *Resources::load_texture(const char *name){
+Object *Resources::load_texture(const char *name){
 	if (contains(name)){
 		return assets_[name];
 	}
@@ -56,12 +56,12 @@ void *Resources::load_texture(const char *name){
 	}
 
 	Texture2D *tex = new Texture2D();
-	if (tex->LoadData(data, header.width, header.height, header.get_size(GL_COMPRESSED_RGBA8_ETC2_EAC))){
-		
+	if (!tex->LoadData(data, header.width, header.height, header.get_size(GL_COMPRESSED_RGBA8_ETC2_EAC))){
+		return nullptr;
 	}
 
-
-	return nullptr;
+	assets_[name] = (Object *)tex;
+	return (Object *)tex;
 }
 
 bool Resources::is_etc2_format(DataStream *ds){

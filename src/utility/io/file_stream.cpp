@@ -9,7 +9,7 @@
 #include "file_stream.h"
 #include <stdlib.h>
 #include "utility/log/xlog.h"
-#include "platform/platform_def.h"
+#include "platform/platform_macros.h"
 
 FileStream::FileStream(const char *name, const char *model){
 	TD_ASSERT(name != nullptr, "Invalid name");
