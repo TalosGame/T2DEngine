@@ -45,6 +45,9 @@
     <Filter Include="src\shaders">
       <UniqueIdentifier>{8cf83fd5-d4c6-4f74-8fc7-3d0670a5a403}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\utility\misc">
+      <UniqueIdentifier>{2556f8bc-633a-488c-b13c-c1c2b30c010f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\platform\Device.cpp">
@@ -101,11 +104,26 @@
     <ClCompile Include="src\renderer\material.cpp">
       <Filter>src\renderer</Filter>
     </ClCompile>
-    <ClCompile Include="src\renderer\t2d_shader.cpp">
+    <ClCompile Include="src\core\application.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\camera.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\component.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\game_object.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\transform.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\renderer\shader_program.cpp">
       <Filter>src\renderer</Filter>
     </ClCompile>
-    <ClCompile Include="src\utility\application.cpp">
-      <Filter>src\utility</Filter>
+    <ClCompile Include="src\utility\misc\geometry.cpp">
+      <Filter>src\utility\misc</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -167,14 +185,29 @@
     <ClInclude Include="src\renderer\shader.h">
       <Filter>src\renderer</Filter>
     </ClInclude>
-    <ClInclude Include="src\renderer\t2d_shader.h">
-      <Filter>src\renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="src\utility\application.h">
-      <Filter>src\utility</Filter>
-    </ClInclude>
     <ClInclude Include="src\platform\platform_macros.h">
       <Filter>src\platform</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\application.h">
+      <Filter>src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\camera.h">
+      <Filter>src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\component.h">
+      <Filter>src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\game_object.h">
+      <Filter>src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\transform.h">
+      <Filter>src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\renderer\shader_program.h">
+      <Filter>src\renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\utility\misc\geometry.h">
+      <Filter>src\utility\misc</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

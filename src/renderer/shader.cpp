@@ -12,7 +12,7 @@
 #include "utility/io/file_stream.h"
 #include "utility/string_ext.h"
 #include "platform/platform_def.h"
-#include "t2d_shader.h"
+#include "renderer/shader_program.h"
 
 std::unordered_map<std::string, GLuint> Shader::programs_;
 
@@ -36,9 +36,6 @@ GLuint Shader::load_shader(const std::string &shader_name, eShaderProgram shader
 	default:
 		break;
 	}
-
-// 	std::string shader_path("src/shaders/");
-// 	shader_path.append(file_name).append(".vert");
 
 	GLuint vertex_shader = Shader::create_shader(vert_source, eShaderType::kVertexShader);
 	if (vertex_shader == 0) return 0;

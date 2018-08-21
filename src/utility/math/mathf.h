@@ -9,10 +9,9 @@
 #ifndef __T2D_ENGINE_MATHF_H__
 #define __T2D_ENGINE_MATHF_H__
 
-#include "math_vector.h"
-#include "math_matrix.h"
+#include "platform/platform_macros.h"
 
-#include <math.h>
+__T2D_NAMESPACE_BEGIN__
 
 #define PI		 (3.141592654f)
 #define PI2		 (6.283185308f)
@@ -40,6 +39,11 @@ void math_init(void);
 float fast_sin(float angle);
 float fast_cos(float angle);
 
+float fast_fabs(float f);
+float fast_rsqrt(float number);
+
+#define SQRTFAST(x) ( (x) * fast_rsqrt(x) )
+
 int fast_distance_2d(int x, int y);
 float fast_distance_3d(float x, float y, float z);
 
@@ -47,5 +51,7 @@ bool approximately(float a, float b, float epsilon = EPSILON_E3);
 
 // private function define
 static void build_sin_cos_tables(void);
+
+__T2D_NAMESPACE_END__
 
 #endif //__T2D_ENGINE_MATHF_H__

@@ -1,5 +1,5 @@
 /*!
- * FileName: 	T2DShader.h
+ * FileName: 	shader_program.h
  * Copyright:	TalosGame Studio Co., Ltd
  * Data: 		2018/07/26 2:40
  * Author: 		miller

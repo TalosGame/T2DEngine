@@ -10,7 +10,7 @@
 #include <string.h>
 #include "utility/log/xlog.h"
 #include "utility/string_ext.h"
-#include "utility/application.h"
+#include "core/application.h"
 #include "platform/platform_macros.h"
 
 DataStream::DataStream(){

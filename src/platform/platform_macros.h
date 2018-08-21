@@ -9,6 +9,9 @@
 #ifndef __T2D_ENGINE_PLATFORM_MACROS_H__
 #define __T2D_ENGINE_PLATFORM_MACROS_H__
 
+#define __T2D_NAMESPACE_BEGIN__ namespace t2d{
+#define __T2D_NAMESPACE_END__	}
+
 #define SAFE_DELETE(p)           do { delete (p); (p) = nullptr; } while(0)
 #define SAFE_FREE(p)             do { if(p) { free(p); (p) = nullptr; } } while(0)
 
@@ -23,5 +26,23 @@
 		}							   \
 	} while (false)
 #endif
+
+/// extension set/get macros /////////////////////////////////////////////
+#define GET_SET(type, variable) \
+protected: type variable##_; \
+public: virtual type get_##variable() const { return variable##_; } \
+public: virtual	void set_##variable(type variable) { variable##_ = variable; }
+
+#define GET(type, variable) \
+protected: type variable##_; \
+public: virtual type get_##variable() const { return variable##_; }
+
+#define GET_SET_REF(type, variable) \
+protected: type variable##_; \
+public: virtual const type &get_##variable() const { return variable##_; } \
+public: virtual	void set_##variable(const type &variable) { variable##_ = variable; }
+
+//////////////////////////////////////////////////////////////////////////
+
 
 #endif // __T2D_ENGINE_PLATFORM_MACROS_H__

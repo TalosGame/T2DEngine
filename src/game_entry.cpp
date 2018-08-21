@@ -1,12 +1,18 @@
+#include <vector>
 #include "platform/Device.h"
+#include "platform/platform_macros.h"
 #include "utility/log/xlog.h"
 #include "resource/resources.h"
 #include "core/color.h"
 #include "core/mesh.h"
-#include <renderer/shader.h>
-#include <vector>
+#include "renderer/shader.h"
 #include "utility/math/math_matrix.h"
-#include "renderer/t2d_shader.h"
+#include "utility/misc/geometry.h"
+#include "utility/math/math_vector.h"
+#include "utility/math/mathf.h"
+#include "renderer/shader_program.h"
+#include "core/camera.h"
+#include "core/game_object.h"
 
 #define SCREEN_WIDTH	800
 #define SCREEN_HEIGHT	640
@@ -19,6 +25,51 @@ GLuint VBO, VAO, EBO;
 GLuint program_id;
 
 void init(){
+// 	GameObject *go = new GameObject("ss");
+// 	go->add_component<Camera>();
+// 	go->add_component<Texture2D>();
+// 
+// 	Camera *camera = dynamic_cast<Camera *>(go->get_component<Camera>());
+// 	Transform *transform = dynamic_cast<Transform *>(go->get_component<Transform>());
+// 	
+// 	//T2D::Rect a(0, 0, 1, 1);
+// 
+// 	t2d::Vector2 vec2(1, 2);
+// 	vec2[0] = 10;
+// 
+// 	float x = vec2[0];
+// 	float y = vec2[1];
+// 
+// 	delete go;
+// 	go = nullptr;
+
+	t2d::Vector2 vec1(1, 1);
+	t2d::Vector2 vec2(2, 2);
+	//float dis = vec1.distance(vec2);
+	//float dis1 = sqrt(4);
+	//float val = t2d::fast_fabs(-1.0f);
+
+	float m3[3][3] = {
+		1, 0, 0,
+		0, 1, 0,
+		0, 0, 1
+	};
+
+	t2d::Matrix3x3 m(m3);
+
+	t2d::Matrix3x3 m1(
+		1, 0, 0,
+		0, 1, 0,
+		0, 0, 1
+	);
+
+	float v = m1[0];
+
+	m1[0] = 0;
+	m1(0, 0) = 2;
+
+	//m1 *= 2;
+
 	// Set the viewport
 	glViewport(0, 0, 800, 640);
 
@@ -96,3 +147,5 @@ int game_entry(void *device){
 	devicePtr->register_handle_func(update, draw, exit);
 	return 0;
 }
+
+

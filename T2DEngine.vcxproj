@@ -33,7 +33,8 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v120</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
+    <CharacterSet>
+    </CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -133,18 +134,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\core\application.cpp" />
+    <ClCompile Include="src\core\camera.cpp" />
     <ClCompile Include="src\core\color.cpp" />
+    <ClCompile Include="src\core\component.cpp" />
+    <ClCompile Include="src\core\game_object.cpp" />
     <ClCompile Include="src\core\mesh.cpp" />
     <ClCompile Include="src\core\object.cpp" />
+    <ClCompile Include="src\core\transform.cpp" />
     <ClCompile Include="src\game_entry.cpp" />
     <ClCompile Include="src\platform\Device.cpp" />
     <ClCompile Include="src\platform\windows\window_device.cpp" />
     <ClCompile Include="src\renderer\material.cpp" />
     <ClCompile Include="src\renderer\shader.cpp" />
-    <ClCompile Include="src\renderer\t2d_shader.cpp" />
+    <ClCompile Include="src\renderer\shader_program.cpp" />
     <ClCompile Include="src\resource\resources.cpp" />
     <ClCompile Include="src\resource\texture2d.cpp" />
-    <ClCompile Include="src\utility\application.cpp" />
     <ClCompile Include="src\utility\io\data_stream.cpp" />
     <ClCompile Include="src\utility\io\file_stream.cpp" />
     <ClCompile Include="src\utility\io\stream.cpp" />
@@ -152,24 +157,29 @@
     <ClCompile Include="src\utility\math\mathf.cpp" />
     <ClCompile Include="src\utility\math\math_matrix.cpp" />
     <ClCompile Include="src\utility\math\math_vector.cpp" />
+    <ClCompile Include="src\utility\misc\geometry.cpp" />
     <ClCompile Include="src\utility\string_ext.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h" />
+    <ClInclude Include="src\core\application.h" />
+    <ClInclude Include="src\core\camera.h" />
     <ClInclude Include="src\core\color.h" />
+    <ClInclude Include="src\core\component.h" />
+    <ClInclude Include="src\core\game_object.h" />
     <ClInclude Include="src\core\mesh.h" />
     <ClInclude Include="src\core\object.h" />
+    <ClInclude Include="src\core\transform.h" />
     <ClInclude Include="src\platform\Device.h" />
     <ClInclude Include="src\platform\platform_def.h" />
     <ClInclude Include="src\platform\platform_macros.h" />
     <ClInclude Include="src\platform\windows\window_device.h" />
     <ClInclude Include="src\renderer\material.h" />
     <ClInclude Include="src\renderer\shader.h" />
-    <ClInclude Include="src\renderer\t2d_shader.h" />
+    <ClInclude Include="src\renderer\shader_program.h" />
     <ClInclude Include="src\resource\resources.h" />
     <ClInclude Include="src\resource\resource_def.h" />
     <ClInclude Include="src\resource\texture2d.h" />
-    <ClInclude Include="src\utility\application.h" />
     <ClInclude Include="src\utility\io\data_stream.h" />
     <ClInclude Include="src\utility\io\file_stream.h" />
     <ClInclude Include="src\utility\io\stream.h" />
@@ -177,6 +187,7 @@
     <ClInclude Include="src\utility\math\mathf.h" />
     <ClInclude Include="src\utility\math\math_matrix.h" />
     <ClInclude Include="src\utility\math\math_vector.h" />
+    <ClInclude Include="src\utility\misc\geometry.h" />
     <ClInclude Include="src\utility\string_ext.h" />
   </ItemGroup>
   <ItemGroup>

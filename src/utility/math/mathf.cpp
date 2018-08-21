@@ -9,6 +9,8 @@
 #include "mathf.h"
 #include <math.h>
 
+__T2D_NAMESPACE_BEGIN__
+
 // storage for our sin cos tables
 // 0-360 degree
 float sin_tables[361];
@@ -48,6 +50,33 @@ float fast_cos(float angle){
 	// 根据小数插值计算1°的正旋值
 	// 精度误差 < 0.0001
 	return cos_tables[angle_int] + angle_frac * (cos_tables[angle_int + 1] - cos_tables[angle_int]);
+}
+
+float fast_fabs(float f){
+	int tmp = *(int *)(&f);
+	tmp &= 0x7FFFFFFF;
+	return *(float *)(&tmp);
+}
+
+float fast_rsqrt(float number){
+	long i;
+	float x2, y;
+	const float threehalfs = 1.5F;
+
+	x2 = number * 0.5F;
+	y = number;
+	i = *(long *)&y;						// evil floating point bit level hacking
+	i = 0x5f3759df - (i >> 1);               // what the fuck?
+	y = *(float *)&i;
+	y = y * (threehalfs - (x2 * y * y));   // 1st iteration
+	//	y  = y * ( threehalfs - ( x2 * y * y ) );   // 2nd iteration, this can be removed
+
+#ifndef Q3_VM
+#ifdef __linux__
+	assert(!isnan(y)); // bk010122 - FPE?
+#endif
+#endif
+	return y;
 }
 
 int fast_distance_2d(int x, int y){
@@ -91,3 +120,5 @@ float fast_distance_3d(float fx, float fy, float fz){
 bool approximately(float a, float b, float epsilon){
 	return (fabs(a - b) <= epsilon);
 }
+
+__T2D_NAMESPACE_END__

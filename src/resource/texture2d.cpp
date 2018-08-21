@@ -4,7 +4,7 @@
 #include <string.h>
 #include "utility/log/xlog.h"
 
-Texture2D::Texture2D() {
+Texture2D::Texture2D() : Object(T2dIdentityType::kAssetTexture) {
 	this->texture_id_ = 0;
 }
 

@@ -15,6 +15,9 @@
 #include "utility/math/math_vector.h"
 #include "color.h"
 #include "platform/platform_def.h"
+#include "platform/platform_macros.h"
+
+__T2D_NAMESPACE_BEGIN__
 
 class Mesh{
 public:
@@ -42,5 +45,7 @@ private:
 
 	GLuint vao_, vbo_, ebo_;
 };
+
+__T2D_NAMESPACE_END__
 
 #endif // __T2D_ENGINE_MESH_H__

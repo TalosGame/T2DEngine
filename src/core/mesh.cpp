@@ -8,6 +8,8 @@
 
 #include "mesh.h"
 
+__T2D_NAMESPACE_BEGIN__
+
 Mesh::Mesh(){}
 
 Mesh::Mesh(const char* name){
@@ -43,3 +45,5 @@ void Mesh::set_normals(std::vector<Vector3> &normals){
 void Mesh::set_up_mesh(){
 
 }
+
+__T2D_NAMESPACE_END__

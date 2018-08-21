@@ -6,12 +6,54 @@
 **************************************************************/
 
 #include "math_vector.h"
-
 #include <math.h>
-
 #include "mathf.h"
 #include "utility/log/xlog.h"
 
+__T2D_NAMESPACE_BEGIN__
+
+Vector2::Vector2() {}
+
+Vector2::Vector2(float x, float y) : x(x), y(y) {}
+
+Vector2::Vector2(const Vector2 &vec2) : x(vec2.x), y(vec2.y) {}
+
+Vector2::~Vector2() {}
+
+void Vector2::normalize(){
+	float lenght = sqrtf(this->x * this->x + this->y * this->y);
+
+	if (lenght < EPSILON_E5) return;
+
+	float lenght_inv = 1 / lenght;
+
+	this->x = this->x * lenght_inv;
+	this->y = this->y * lenght_inv;
+}
+
+Vector3::Vector3() {}
+
+Vector3::Vector3(float x, float y, float z) : x(x), y(y), z(z) {}
+
+Vector3::Vector3(const Vector3 &vec3) : x(vec3.x), y(vec3.y), z(vec3.z) {}
+
+Vector3::Vector3(const Vector2 &vec2) : x(vec2.x), y(vec2.y), z(0.0f) {}
+
+Vector3::~Vector3() {}
+
+void Vector3::normalize(){
+	float lenght = sqrtf(this->x * this->x + this->y * this->y + this->z * this->z);
+
+	if (lenght < EPSILON_E5) return;
+
+	float lenght_inv = 1 / lenght;
+
+	this->x = this->x * lenght_inv;
+	this->y = this->y * lenght_inv;
+	this->z = this->z * lenght_inv;
+}
+
+/*
 // 2d vector ///////////////////////////////////
 void vector2_add(Vector2Ptr v1, Vector2Ptr v2, Vector2Ptr ret){
 	ret->x = v1->x + v2->x;
@@ -67,7 +109,7 @@ void vector2_normalize(Vector2Ptr v){
 	float lenght_inv = 1 / lenght;
 	
 	v->x = v->x * lenght_inv;
-	v->y = v->y * lenght_inv;
+	v->y = v->y * lenght_inv;  
 }
 
 void vector2_normalize(Vector2Ptr v, Vector2Ptr ret){
@@ -173,7 +215,7 @@ void vector3_normalize(Vector3Ptr v){
 }
 
 void vector3_normalize(Vector3Ptr v, Vector3Ptr ret){
-	vector3d_zero(ret);
+	//vector3d_zero(ret);
 
 	float lenght = sqrtf(v->x * v->x + v->y * v->y + v->z * v->z);
 
@@ -192,6 +234,7 @@ void vector3_print(Vector3Ptr v, const char *name){
 		log_error(" %f", v->M[index]);
 	log_error(" ]\n");
 }
+*/
 
 // 4d vector ///////////////////////////////////
 void vector4_add(Vector4Ptr v1, Vector4Ptr v2, Vector4Ptr ret){
@@ -284,7 +327,7 @@ void vector4_normalize(Vector4Ptr v){
 }
 
 void vector4_normalize(Vector4Ptr v, Vector4Ptr ret){
-	vector4d_zero(ret);
+	//vector4d_zero(ret);
 
 	float lenght = sqrtf(v->x * v->x + v->y * v->y + v->z * v->z);
 
@@ -304,3 +347,15 @@ void vector4_print(Vector4Ptr v, const char *name){
 		log_error(" %f", v->M[index]);
 	log_error(" ]\n");
 }
+
+
+///const struct variable define/////////////////////////////////////////////////////////////
+const Vector2 Vector2::ZERO = Vector2(0.0f, 0.0f);
+const Vector2 Vector2::UP = Vector2(0.0f, 1.0f);
+const Vector2 Vector2::DOWN = Vector2(0.0f, -1.0f);
+const Vector2 Vector2::RIGHT = Vector2(1.0f, 0.0f);
+const Vector2 Vector2::LEFT = Vector2(-1.0f, 0.0f);
+
+
+
+__T2D_NAMESPACE_END__

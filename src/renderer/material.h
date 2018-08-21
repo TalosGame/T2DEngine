@@ -16,8 +16,6 @@ public:
 	Material(Shader *shader);
 	virtual ~Material();
 
-
-
 private:
 
 	Shader *shader_;

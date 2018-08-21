@@ -24,7 +24,7 @@ Device::~Device(){
 
 bool Device::set_up_device(uint32 width, uint32 height, uint32 flags) {
 	// init math lib
-	math_init();
+	t2d::math_init();
 
 	// init log
 	open_error_file("", stdout);

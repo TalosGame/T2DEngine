@@ -4,6 +4,14 @@
 #include "platform/platform_def.h"
 #include <GLES3/gl3.h>
 
+typedef enum _T2dIdentityType{
+	kAssetObject = 0x1,
+	kAssetTexture = 0x2,
+	kAssetShader = 0x3,
+	kAssetText = 0x4,
+	kAssetFont = 0x5
+}T2dIdentityType;
+
 /// texture define //////////////////////
 typedef enum _TextureFormat{
 	/// ETC1 ETC2 /////////////////

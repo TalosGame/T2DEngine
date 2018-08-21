@@ -12,7 +12,7 @@
 #include <GLES3/gl3.h>
 #include <unordered_map>
 #include <string>
-#include "t2d_shader.h"
+#include "shader_program.h"
 
 enum eShaderType{
 	kVertexShader = 0,

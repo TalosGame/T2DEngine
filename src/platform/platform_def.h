@@ -14,6 +14,7 @@ typedef unsigned short      uint16;
 typedef unsigned int        uint32;
 typedef unsigned long long  uint64;
 
+
 // esCreateWindow flag - RGB color buffer
 #define ES_WINDOW_RGB           0
 // esCreateWindow flag - ALPHA color buffer
