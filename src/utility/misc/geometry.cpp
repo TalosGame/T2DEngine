@@ -8,7 +8,7 @@
 
 #include "geometry.h"
 
-__T2D_NAMESPACE_BEGIN__
+__T2D_NS_BEGIN__
 
 Rect::Rect(){}
 
@@ -47,4 +47,4 @@ t2d::Rect& Rect::operator=(const t2d::Rect& rhs){
 	return *this;
 }
 
-__T2D_NAMESPACE_END__
+__T2D_NS_END__

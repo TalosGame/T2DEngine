@@ -6,9 +6,9 @@
 #include "core/color.h"
 #include "core/mesh.h"
 #include "renderer/shader.h"
-#include "utility/math/math_matrix.h"
+#include "utility/math/matrix.h"
 #include "utility/misc/geometry.h"
-#include "utility/math/math_vector.h"
+#include "utility/math/vector.h"
 #include "utility/math/mathf.h"
 #include "renderer/shader_program.h"
 #include "core/camera.h"
@@ -50,12 +50,28 @@ void init(){
 	//float val = t2d::fast_fabs(-1.0f);
 
 	float m3[3][3] = {
-		1, 0, 0,
-		0, 1, 0,
-		0, 0, 1
+		1, 2, 3,
+		0, 1, 5,
+		5, 6, 0
 	};
 
 	t2d::Matrix3x3 m(m3);
+	t2d::Matrix3x3 inv = m.inverse();
+	t2d::Matrix3x3 ret = m * inv;
+
+	float m4[4][4] = {
+		1, 2, 3, 1,
+		0, 1, 5, 1,
+		5, 6, 0, 1,
+		0, 0, 0, 1
+	};
+	t2d::Matrix4x4 m2(m4);
+	t2d::Matrix4x4 inv1 = m2.inverse();
+	t2d::Matrix4x4 ret2 = m2 * inv1;
+
+	if (ret2 == t2d::Matrix4x4::IDENTITY){
+		int j = 0;
+	}
 
 	t2d::Matrix3x3 m1(
 		1, 0, 0,

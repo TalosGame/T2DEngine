@@ -8,7 +8,7 @@
 
 #include "mesh.h"
 
-__T2D_NAMESPACE_BEGIN__
+__T2D_NS_BEGIN__
 
 Mesh::Mesh(){}
 
@@ -46,4 +46,4 @@ void Mesh::set_up_mesh(){
 
 }
 
-__T2D_NAMESPACE_END__
+__T2D_NS_END__

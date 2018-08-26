@@ -9,10 +9,10 @@
 #ifndef __T2D_ENGINE_GEOMETRY_H__
 #define __T2D_ENGINE_GEOMETRY_H__
 
-#include "utility/math/math_vector.h"
+#include "utility/math/vector.h"
 #include "platform/platform_macros.h"
 
-__T2D_NAMESPACE_BEGIN__
+__T2D_NS_BEGIN__
 
 struct Rect
 {
@@ -38,6 +38,6 @@ public:
 
 bool operator==(Rect lhs, Rect rhs);
 
-__T2D_NAMESPACE_END__
+__T2D_NS_END__
 
 #endif // __T2D_ENGINE_GEOMETRY_H__

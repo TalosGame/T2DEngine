@@ -9,8 +9,21 @@
 #ifndef __T2D_ENGINE_PLATFORM_MACROS_H__
 #define __T2D_ENGINE_PLATFORM_MACROS_H__
 
-#define __T2D_NAMESPACE_BEGIN__ namespace t2d{
-#define __T2D_NAMESPACE_END__	}
+#ifdef __cplusplus
+#define __T2D_NS_BEGIN__		namespace t2d{
+#define __T2D_NS_END__			}
+#else
+#define __T2D_NS_BEGIN__
+#define __T2D_NS_END__
+#endif
+
+#ifdef __cplusplus
+#define __T2D_NS_MATH_BEGIN__	namespace t2d{
+#define __T2D_NS_MATH_END__		}
+#else
+#define __T2D_NS_MATH_BEGIN__
+#define __T2D_NS_MATH_END__
+#endif
 
 #define SAFE_DELETE(p)           do { delete (p); (p) = nullptr; } while(0)
 #define SAFE_FREE(p)             do { if(p) { free(p); (p) = nullptr; } } while(0)

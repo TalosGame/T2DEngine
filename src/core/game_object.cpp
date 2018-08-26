@@ -10,7 +10,7 @@
 #include "transform.h"
 #include "camera.h"
 
-__T2D_NAMESPACE_BEGIN__
+__T2D_NS_BEGIN__
 
 GameObject::GameObject(const std::string name) : Object(T2dIdentityType::kAssetObject, name){
 	this->transform = add_component<Transform>();
@@ -38,9 +38,8 @@ Component *GameObject::create_component(const std::type_info &type){
 		ret = new Camera();
 	}
 
-
-
+	ret->set_game_object(this);
 	return ret;
 }
 
-__T2D_NAMESPACE_END__
+__T2D_NS_END__

@@ -5,12 +5,12 @@
 *  Desc     :
 **************************************************************/
 
-#include "math_vector.h"
+#include "vector.h"
 #include <math.h>
 #include "mathf.h"
 #include "utility/log/xlog.h"
 
-__T2D_NAMESPACE_BEGIN__
+__T2D_NS_MATH_BEGIN__
 
 Vector2::Vector2() {}
 
@@ -357,5 +357,4 @@ const Vector2 Vector2::RIGHT = Vector2(1.0f, 0.0f);
 const Vector2 Vector2::LEFT = Vector2(-1.0f, 0.0f);
 
 
-
-__T2D_NAMESPACE_END__
+__T2D_NS_MATH_END__

@@ -53,12 +53,6 @@
     <ClCompile Include="src\platform\Device.cpp">
       <Filter>src\platform</Filter>
     </ClCompile>
-    <ClCompile Include="src\utility\math\math_matrix.cpp">
-      <Filter>src\utility\math</Filter>
-    </ClCompile>
-    <ClCompile Include="src\utility\math\math_vector.cpp">
-      <Filter>src\utility\math</Filter>
-    </ClCompile>
     <ClCompile Include="src\utility\math\mathf.cpp">
       <Filter>src\utility\math</Filter>
     </ClCompile>
@@ -125,16 +119,19 @@
     <ClCompile Include="src\utility\misc\geometry.cpp">
       <Filter>src\utility\misc</Filter>
     </ClCompile>
+    <ClCompile Include="src\utility\math\vector.cpp">
+      <Filter>src\utility\math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\utility\math\matrix.cpp">
+      <Filter>src\utility\math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\utility\math\quaternion.cpp">
+      <Filter>src\utility\math</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\platform\Device.h">
       <Filter>src\platform</Filter>
-    </ClInclude>
-    <ClInclude Include="src\utility\math\math_matrix.h">
-      <Filter>src\utility\math</Filter>
-    </ClInclude>
-    <ClInclude Include="src\utility\math\math_vector.h">
-      <Filter>src\utility\math</Filter>
     </ClInclude>
     <ClInclude Include="src\utility\math\mathf.h">
       <Filter>src\utility\math</Filter>
@@ -208,6 +205,15 @@
     </ClInclude>
     <ClInclude Include="src\utility\misc\geometry.h">
       <Filter>src\utility\misc</Filter>
+    </ClInclude>
+    <ClInclude Include="src\utility\math\vector.h">
+      <Filter>src\utility\math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\utility\math\matrix.h">
+      <Filter>src\utility\math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\utility\math\quaternion.h">
+      <Filter>src\utility\math</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

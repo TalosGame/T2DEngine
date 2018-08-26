@@ -15,7 +15,7 @@
 #include "platform/platform_def.h"
 #include "platform/platform_macros.h"
 
-__T2D_NAMESPACE_BEGIN__
+__T2D_NS_BEGIN__
 
 class GameObject;
 
@@ -31,6 +31,6 @@ public:
 private:
 };
 
-__T2D_NAMESPACE_END__
+__T2D_NS_END__
 
 #endif // __T2D_ENGINE_COMPONENT_H__

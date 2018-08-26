@@ -11,19 +11,27 @@
 
 #include "component.h"
 #include "platform/platform_macros.h"
+#include "utility/math/matrix.h"
+#include "utility/misc/geometry.h"
 
-__T2D_NAMESPACE_BEGIN__
+__T2D_NS_BEGIN__
 
 class Camera : public Component{
 public:
 	Camera();
+	Camera(float pixel_width, float pixel_height);
 	virtual ~Camera();
 
-private:
-	
+	float pixel_width();
+	float pixel_height();
 
+	GET_SET(Rect, pixel_rect);
+
+private:
+	Matrix4x4 cameraMatrix_;
+	Matrix4x4 orthoMatrix_;
 };
 
-__T2D_NAMESPACE_END__
+__T2D_NS_END__
 
 #endif // __T2D_ENGINE_CAMERA_H__

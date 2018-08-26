@@ -13,7 +13,7 @@
 #include "platform/platform_macros.h"
 #include "mathf.h"
 
-__T2D_NAMESPACE_BEGIN__
+__T2D_NS_MATH_BEGIN__
 
 struct Vector2
 {
@@ -471,6 +471,6 @@ void vector4_normalize(Vector4Ptr v);
 void vector4_normalize(Vector4Ptr v, Vector4Ptr ret);
 void vector4_print(Vector4Ptr v, const char *name);
 
-__T2D_NAMESPACE_END__
+__T2D_NS_MATH_END__
 
 #endif // __XENGINE_MATH_VECTOR_H__

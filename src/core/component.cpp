@@ -8,7 +8,7 @@
 
 #include "component.h"
 
-__T2D_NAMESPACE_BEGIN__
+__T2D_NS_BEGIN__
 
 //uint64 Component::next_id_ = 10000;
 
@@ -16,4 +16,4 @@ Component::Component() : Object(T2dIdentityType::kAssetObject){}
 
 Component::~Component(){}
 
-__T2D_NAMESPACE_END__
+__T2D_NS_END__

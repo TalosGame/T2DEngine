@@ -9,7 +9,7 @@
 #include "mathf.h"
 #include <math.h>
 
-__T2D_NAMESPACE_BEGIN__
+__T2D_NS_MATH_BEGIN__
 
 // storage for our sin cos tables
 // 0-360 degree
@@ -121,4 +121,4 @@ bool approximately(float a, float b, float epsilon){
 	return (fabs(a - b) <= epsilon);
 }
 
-__T2D_NAMESPACE_END__
+__T2D_NS_MATH_END__

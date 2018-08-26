@@ -155,8 +155,9 @@
     <ClCompile Include="src\utility\io\stream.cpp" />
     <ClCompile Include="src\utility\log\xlog.cpp" />
     <ClCompile Include="src\utility\math\mathf.cpp" />
-    <ClCompile Include="src\utility\math\math_matrix.cpp" />
-    <ClCompile Include="src\utility\math\math_vector.cpp" />
+    <ClCompile Include="src\utility\math\matrix.cpp" />
+    <ClCompile Include="src\utility\math\quaternion.cpp" />
+    <ClCompile Include="src\utility\math\vector.cpp" />
     <ClCompile Include="src\utility\misc\geometry.cpp" />
     <ClCompile Include="src\utility\string_ext.cpp" />
   </ItemGroup>
@@ -185,8 +186,9 @@
     <ClInclude Include="src\utility\io\stream.h" />
     <ClInclude Include="src\utility\log\xlog.h" />
     <ClInclude Include="src\utility\math\mathf.h" />
-    <ClInclude Include="src\utility\math\math_matrix.h" />
-    <ClInclude Include="src\utility\math\math_vector.h" />
+    <ClInclude Include="src\utility\math\matrix.h" />
+    <ClInclude Include="src\utility\math\quaternion.h" />
+    <ClInclude Include="src\utility\math\vector.h" />
     <ClInclude Include="src\utility\misc\geometry.h" />
     <ClInclude Include="src\utility\string_ext.h" />
   </ItemGroup>

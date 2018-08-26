@@ -8,7 +8,7 @@
 
 #include "transform.h"
 
-__T2D_NAMESPACE_BEGIN__
+__T2D_NS_BEGIN__
 
 Transform::Transform(){
 
@@ -18,4 +18,4 @@ Transform::~Transform(){
 
 }
 
-__T2D_NAMESPACE_END__
+__T2D_NS_END__

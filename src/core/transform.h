@@ -11,12 +11,12 @@
 
 #include <vector>
 #include "component.h"
-#include "utility/math/math_vector.h"
-#include "utility/math/math_matrix.h"
+#include "utility/math/vector.h"
+#include "utility/math/matrix.h"
 #include "utility/misc/geometry.h"
 #include "platform/platform_macros.h"
 
-__T2D_NAMESPACE_BEGIN__
+__T2D_NS_BEGIN__
 
 class Transform : public Component{
 public:
@@ -38,6 +38,6 @@ private:
 	//Matrix3x3 
 };
 
-__T2D_NAMESPACE_END__
+__T2D_NS_END__
 
 #endif // __T2D_ENGINE_TRANSFORM_H__

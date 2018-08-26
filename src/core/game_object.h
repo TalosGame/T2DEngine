@@ -18,7 +18,7 @@
 #include "transform.h"
 #include "platform/platform_macros.h"
 
-__T2D_NAMESPACE_BEGIN__
+__T2D_NS_BEGIN__
 
 class GameObject : Object{
 public:
@@ -51,6 +51,8 @@ public:
 		return find_component_by_type(typeid(T));
 	}
 
+
+
 private:
 	Component *find_component_by_type(const std::type_info &type) const;
 	Component *create_component(const std::type_info &type);
@@ -65,6 +67,6 @@ private:
 	std::vector<GameObject*> childs_;
 };
 
-__T2D_NAMESPACE_END__
+__T2D_NS_END__
 
 #endif // __T2D_ENGINE_GAME_OBJECT_H__
