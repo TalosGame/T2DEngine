@@ -57,11 +57,11 @@ public:
 	float x;
 	float y;
 
-	static const Vector2 ZERO;
-	static const Vector2 UP;
-	static const Vector2 DOWN;
-	static const Vector2 RIGHT;
-	static const Vector2 LEFT;
+	static const Vector2 kZero;
+	static const Vector2 kUp;
+	static const Vector2 kDown;
+	static const Vector2 kRight;
+	static const Vector2 kLeft;
 };
 
 inline void Vector2::zero(){
@@ -176,6 +176,7 @@ public:
 	float &operator[](const int index);
 
 	Vector3 &operator=(const Vector3 &a);
+	Vector3 operator-() const;
 
 	Vector3 operator*(float a) const;
 	Vector3 operator*(const Vector3 &a) const;
@@ -198,16 +199,19 @@ public:
 	float sqr_distance(const Vector3 &a) const;
 
 	float dot(const Vector3 &a) const;
+	Vector3 cross(const Vector3 &a) const;
 
 	float x;
 	float y;
 	float z;
 
-	static const Vector3 ZERO;
-	static const Vector3 UP;
-	static const Vector3 DOWN;
-	static const Vector3 RIGHT;
-	static const Vector3 LEFT;
+	static const Vector3 kZero;
+	static const Vector3 kUp;
+	static const Vector3 kDown;
+	static const Vector3 kRight;
+	static const Vector3 kLeft;
+	static const Vector3 kForward;
+	static const Vector3 kBack;
 };
 
 inline void Vector3::zero(){
@@ -235,6 +239,10 @@ inline Vector3 &Vector3::operator=(const Vector3 &a){
 	this->y = a.y;
 	this->z = a.z;
 	return *this;
+}
+
+inline Vector3 Vector3::operator-() const{
+	return Vector3(-this->x, -this->y, -this->z);
 }
 
 inline Vector3 Vector3::operator*(float a) const{
@@ -309,6 +317,15 @@ inline float Vector3::sqr_distance(const Vector3 &a) const{
 
 inline float Vector3::dot(const Vector3 &a) const{
 	return (this->x * a.x + this->y * a.y + this->z * a.z);
+}
+
+inline Vector3 Vector3::cross(const  Vector3 &a) const{
+	Vector3 ret;
+	ret.x = this->y * a.z - this->z * a.y;
+	ret.y = this->z * a.x - this->x * a.z;
+	ret.z = this->x * a.y - this->y * a.x;
+
+	return ret;
 }
 
 /*

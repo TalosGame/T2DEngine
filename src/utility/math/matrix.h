@@ -160,6 +160,36 @@ inline void Matrix3x3::identity() {
 	M[2][0] = 0.f; M[2][1] = 0.f; M[2][2] = 1.f;
 }
 
+inline bool matrix_to_euler(const Matrix3x3 &m, Vector3 &v){
+	// YXZ order
+	if (m.m12 < 0.999F) // some fudge for imprecision
+	{
+		if (m.m12 > -0.999F) // some fudge for imprecision
+		{
+			v.x = asin(-m.m12);
+			v.y = atan2(m.m02, m.m22);
+			v.z = atan2(m.m10, m.m11);
+			return true;
+		}
+		else
+		{
+			// WARNING.  Not unique.  YA - ZA = atan2(r01,r00)
+			v.x = PI * 0.5F;
+			v.y = atan2(m.m01, m.m00);
+			v.z = 0.0F;
+			return false;
+		}
+	}
+	else
+	{
+		// WARNING.  Not unique.  YA + ZA = atan2(-r01,r00)
+		v.x = -PI * 0.5F;
+		v.y = atan2(-m.m01, m.m00);
+		v.z = 0.0F;
+		return false;
+	}
+}
+
 //////////////////////////////////////////////////////////////////////////
 struct Matrix4x4
 {

@@ -10,6 +10,7 @@
 #include "utility/misc/geometry.h"
 #include "utility/math/vector.h"
 #include "utility/math/mathf.h"
+#include "utility/math/quaternion.h"
 #include "renderer/shader_program.h"
 #include "core/camera.h"
 #include "core/game_object.h"
@@ -85,6 +86,12 @@ void init(){
 	m1(0, 0) = 2;
 
 	//m1 *= 2;
+	t2d::Quaternion q = angle_axis_to_quaternion(t2d::Vector3::kForward, 45);
+	t2d::Quaternion q1 = angle_axis_to_quaternion(t2d::Vector3::kForward, 60);
+	float diff = AngularDistance(q, q1);
+
+	t2d::Vector3 v1 = quaternion_to_euler(q);
+	float angle = RAD_TO_DEG(v1.z);
 
 	// Set the viewport
 	glViewport(0, 0, 800, 640);

@@ -350,11 +350,18 @@ void vector4_print(Vector4Ptr v, const char *name){
 
 
 ///const struct variable define/////////////////////////////////////////////////////////////
-const Vector2 Vector2::ZERO = Vector2(0.0f, 0.0f);
-const Vector2 Vector2::UP = Vector2(0.0f, 1.0f);
-const Vector2 Vector2::DOWN = Vector2(0.0f, -1.0f);
-const Vector2 Vector2::RIGHT = Vector2(1.0f, 0.0f);
-const Vector2 Vector2::LEFT = Vector2(-1.0f, 0.0f);
+const Vector2 Vector2::kZero = Vector2(0.0f, 0.0f);
+const Vector2 Vector2::kUp = Vector2(0.0f, 1.0f);
+const Vector2 Vector2::kDown = Vector2(0.0f, -1.0f);
+const Vector2 Vector2::kRight = Vector2(1.0f, 0.0f);
+const Vector2 Vector2::kLeft = Vector2(-1.0f, 0.0f);
 
+const Vector3 Vector3::kZero = Vector3(0.0f, 0.0f, 0.0f);
+const Vector3 Vector3::kUp = Vector3(0.0f, 1.0f, 0.0f);
+const Vector3 Vector3::kDown = Vector3(0.0f, -1.0f, 0.0f);
+const Vector3 Vector3::kRight = Vector3(1.0f, 0.0f, 0.0f);
+const Vector3 Vector3::kLeft = Vector3(-1.0f, 0.0f, 0.0f);
+const Vector3 Vector3::kForward = Vector3(0.0f, 0.0f, 1.0f);
+const Vector3 Vector3::kBack = Vector3(0.0f, 0.0f, -1.0f);
 
 __T2D_NS_MATH_END__

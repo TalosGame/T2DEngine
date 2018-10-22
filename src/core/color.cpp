@@ -73,22 +73,22 @@ Color32 operator/(const Color32 &c1, const Color32 &c2){
 }
 
 ///const struct variable define //////////////////////////////////////////
-const Color Color::WHITE(1.0f, 1.0f, 1.0f, 1.0f);
-const Color Color::YELLOW(1.0f, 0.92f, 0.016f, 1.0f);
-const Color Color::BLUE(0.0f, 0.0f, 1.0f, 1.0f);
-const Color Color::GREEN(0.0f, 1.0f, 0.0f, 1.0f);
+const Color Color::kWhite(1.0f, 1.0f, 1.0f, 1.0f);
+const Color Color::kYellow(1.0f, 0.92f, 0.016f, 1.0f);
+const Color Color::kBlue(0.0f, 0.0f, 1.0f, 1.0f);
+const Color Color::kGreen(0.0f, 1.0f, 0.0f, 1.0f);
 const Color Color::RED(1.0f, 0.0f, 0.0f, 1.0f);
-const Color Color::MAGENTA(1.0f, 0.0f, 1.0f, 1.0f);
-const Color Color::BLACK(0.0f, 0.0f, 0.0f, 1.0f);
-const Color Color::GRAY(0.5f, 0.5f, 0.5f, 1.0f);
+const Color Color::kMagenta(1.0f, 0.0f, 1.0f, 1.0f);
+const Color Color::kBlack(0.0f, 0.0f, 0.0f, 1.0f);
+const Color Color::kGray(0.5f, 0.5f, 0.5f, 1.0f);
 
-const Color32 Color32::WHITE(255, 255, 255, 255);
-const Color32 Color32::YELLOW(255, 235, 4, 255);
-const Color32 Color32::BLUE(0, 0, 255, 255);
-const Color32 Color32::GREEN(0, 255, 0, 255);
-const Color32 Color32::RED(255, 0, 0, 255);
-const Color32 Color32::MAGENTA(255, 0, 255, 255);
-const Color32 Color32::BLACK(0, 0, 0, 255);
-const Color32 Color32::GRAY(128, 128, 128, 255);
+const Color32 Color32::kWhite(255, 255, 255, 255);
+const Color32 Color32::kYellow(255, 235, 4, 255);
+const Color32 Color32::kBlue(0, 0, 255, 255);
+const Color32 Color32::kGreen(0, 255, 0, 255);
+const Color32 Color32::kRed(255, 0, 0, 255);
+const Color32 Color32::kMagenta(255, 0, 255, 255);
+const Color32 Color32::kBlack(0, 0, 0, 255);
+const Color32 Color32::kGray(128, 128, 128, 255);
 
 //////////////////////////////////////////////////////////////////////////

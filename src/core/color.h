@@ -21,14 +21,14 @@ struct Color{
 	float b_;
 	float a_;
 
-	static const Color WHITE;
-	static const Color YELLOW;
-	static const Color BLUE;
-	static const Color GREEN;
+	static const Color kWhite;
+	static const Color kYellow;
+	static const Color kBlue;
+	static const Color kGreen;
 	static const Color RED;
-	static const Color MAGENTA;
-	static const Color BLACK;
-	static const Color GRAY;
+	static const Color kMagenta;
+	static const Color kBlack;
+	static const Color kGray;
 
 	bool operator==(const Color& right) const;
 	bool operator!=(const Color& right) const;
@@ -45,14 +45,14 @@ struct  Color32
 	uint8 b_;
 	uint8 a_;
 
-	static const Color32 WHITE;
-	static const Color32 YELLOW;
-	static const Color32 BLUE;
-	static const Color32 GREEN;
-	static const Color32 RED;
-	static const Color32 MAGENTA;
-	static const Color32 BLACK;
-	static const Color32 GRAY;
+	static const Color32 kWhite;
+	static const Color32 kYellow;
+	static const Color32 kBlue;
+	static const Color32 kGreen;
+	static const Color32 kRed;
+	static const Color32 kMagenta;
+	static const Color32 kBlack;
+	static const Color32 kGray;
 
 	bool operator==(const Color32& right) const;
 	bool operator!=(const Color32& right) const;
