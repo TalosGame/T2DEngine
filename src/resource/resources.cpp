@@ -8,8 +8,16 @@
 
 #include "resources.h"
 #include "resource_def.h"
+#include "renderer/shader_program.h"
 #include "utility/string_ext.h"
 #include "utility/log/xlog.h"
+#include "t2d_macros.h"
+
+__T2D_NS_BEGIN__
+
+static const char* kShaderNames[] = {
+	"BlendVertexColor",
+};
 
 Resources *Resources::instance_ = nullptr;
 
@@ -25,7 +33,16 @@ Resources *Resources::Instance(){
 	return instance_;
 }
 
-void Resources::Destorty(){
+void Resources::initialize_extra_resources(){
+	// initialize default shaders
+	int len = 0;
+	GET_ARRAY_LEN(kShaderNames, len);
+	for (int i = 0; i < len; i++){
+		ShaderProgram::load_shader_program(kShaderNames[i]);
+	}
+}
+
+void Resources::destorty(){
 
 }
 
@@ -97,6 +114,8 @@ bool Resources::contains(const char *name){
 
 	return false;
 }
+
+__T2D_NS_END__
 
 /*
 Texture2D *Resources::Load(const char *name){

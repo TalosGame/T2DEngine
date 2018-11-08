@@ -13,11 +13,12 @@
 
 class FileStream{
 public:
-	FileStream(const char *name, const char *model);
+	FileStream();
 	virtual ~FileStream();
 
+	bool open(const char *path, const char *model);
 	const char *read_buffer();
-	//const char *read_line();
+	void close();
 
 private:
 	FILE *fp_;

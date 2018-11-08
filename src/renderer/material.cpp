@@ -8,10 +8,16 @@
 
 #include "material.h"
 
-Material::Material(Shader *shader){
+__T2D_NS_BEGIN__
 
+Material::Material(Shader *shader){
 }
 
 Material::~Material(){
 
 }
+
+// static void enable(){}
+// static void disable();
+
+__T2D_NS_END__

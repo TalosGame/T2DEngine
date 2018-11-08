@@ -10,6 +10,7 @@
 
 #include "utility/log/xlog.h"
 #include "utility/math/mathf.h"
+#include "resource/resources.h"
  
 Device::Device(){
 	this->update = nullptr;
@@ -24,7 +25,9 @@ Device::~Device(){
 
 bool Device::set_up_device(uint32 width, uint32 height, uint32 flags) {
 	// init math lib
-	t2d::math_init();
+	math_init();
+	// init default shaders
+	t2d::Resources::Instance()->initialize_extra_resources();
 
 	// init log
 	open_error_file("", stdout);

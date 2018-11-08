@@ -68,5 +68,4 @@ Color32 operator+(const Color32 &c1, const Color32 &c2);
 Color32 operator*(const Color32 &c1, const Color32 &c2);
 Color32 operator/(const Color32 &c1, const Color32 &c2);
 
-
 #endif // __T2D_ENGINE_COLOR_H__

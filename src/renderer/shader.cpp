@@ -7,63 +7,56 @@
  */
 
 #include "shader.h"
-#include <string>
 #include "utility/log/xlog.h"
 #include "utility/io/file_stream.h"
 #include "utility/string_ext.h"
 #include "platform/platform_def.h"
 #include "renderer/shader_program.h"
 
-std::unordered_map<std::string, GLuint> Shader::programs_;
+__T2D_NS_BEGIN__
 
-Shader::Shader(){}
+BetterMap<const char*, Shader*> Shader::programs_;
+
+Shader::Shader(GLuint program_id) : program_id_(program_id){}
 
 Shader::~Shader(){}
 
-GLuint Shader::load_shader(const std::string &shader_name, eShaderProgram shader_program){
-	if (contains(shader_name)){
+void Shader::enable() const{
+	glUseProgram(program_id_);
+}
+
+void Shader::disable() const{
+	glUseProgram(0);
+}
+
+Shader* Shader::find(const char* shader_name){
+	if (contains(&programs_, shader_name)){
 		return programs_[shader_name];
 	}
 
-	const char *vert_source = nullptr;
-	const char *frag_source = nullptr;
-	switch (shader_program)
-	{
-	case kBlendVertexColorProgram:
-		vert_source = t2dBlendVertexColor_vert;
-		frag_source = t2dBlendVertexColor_frag;
-		break;
-	default:
-		break;
-	}
+	ShaderSource *source = ShaderProgram::get_source(shader_name);
+	TD_ASSERT(source != nullptr, "Get shader resource error!");
+
+	const char *vert_source = source->vertex_shader_;
+	const char *frag_source = source->fragment_shader_;
 
 	GLuint vertex_shader = Shader::create_shader(vert_source, eShaderType::kVertexShader);
-	if (vertex_shader == 0) return 0;
+	if (vertex_shader == 0) return nullptr;
 
-	//shader_path = replace(shader_path, ".vert", ".frag");
 	GLuint frag_shader = Shader::create_shader(frag_source, eShaderType::kFragmentShader);
-	if (frag_shader == 0) return 0;
+	if (frag_shader == 0) return nullptr;
 
-	Shader *shader = new Shader();
 	GLuint program = 0;
-	if (shader->create_program(vertex_shader, frag_shader, &program)){
-		programs_[shader_name] = program;
+	if (!Shader::create_program(vertex_shader, frag_shader, &program)){
+		return nullptr;
 	}
+
+	Shader *shader = new Shader(program);
+	programs_[shader_name] = shader;
 
 	glDeleteShader(vertex_shader);
 	glDeleteShader(frag_shader);
-	return program;
-}
-
-GLuint Shader::load_shader(const std::string &shader_name, const std::string &program_name){
-	if (contains(shader_name)){
-		return programs_[shader_name];
-	}
-
-	//std::string shader_path("shaders\\");
-	//shader_path.append(program_name).append("_v.shader");
-
-
+	return shader;
 }
 
 GLuint Shader::create_shader(const char *source, eShaderType type){
@@ -117,20 +110,12 @@ bool Shader::release_shader(const GLuint program){
 }
 
 void Shader::release_all(){
-	for (auto iter = programs_.begin(); iter != programs_.end(); ++iter){
-		GLuint pr = iter->second;
-		glDeleteProgram(pr);
-	}
-
-	programs_.clear();
+// 	for (auto iter = programs_.begin(); iter != programs_.end(); ++iter){
+// 		GLuint pr = iter->second;
+// 		glDeleteProgram(pr);
+// 	}
+// 
+// 	programs_.clear();
 }
 
-bool Shader::contains(const std::string &name){
-	if (programs_.find(name) != programs_.end()){
-		return true;
-	}
-
-	return false;
-}
-
-
+__T2D_NS_END__

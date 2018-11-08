@@ -23,7 +23,7 @@
 
 Texture2D *texture = nullptr;
 GLuint VBO, VAO, EBO;
-GLuint program_id;
+t2d::Shader* shader;
 
 void init(){
 // 	GameObject *go = new GameObject("ss");
@@ -44,8 +44,8 @@ void init(){
 // 	delete go;
 // 	go = nullptr;
 
-	t2d::Vector2 vec1(1, 1);
-	t2d::Vector2 vec2(2, 2);
+	Vector2 vec1(1, 1);
+	Vector2 vec2(2, 2);
 	//float dis = vec1.distance(vec2);
 	//float dis1 = sqrt(4);
 	//float val = t2d::fast_fabs(-1.0f);
@@ -56,9 +56,9 @@ void init(){
 		5, 6, 0
 	};
 
-	t2d::Matrix3x3 m(m3);
-	t2d::Matrix3x3 inv = m.inverse();
-	t2d::Matrix3x3 ret = m * inv;
+	Matrix3x3 m(m3);
+	Matrix3x3 inv = m.inverse();
+	Matrix3x3 ret = m * inv;
 
 	float m4[4][4] = {
 		1, 2, 3, 1,
@@ -66,15 +66,15 @@ void init(){
 		5, 6, 0, 1,
 		0, 0, 0, 1
 	};
-	t2d::Matrix4x4 m2(m4);
-	t2d::Matrix4x4 inv1 = m2.inverse();
-	t2d::Matrix4x4 ret2 = m2 * inv1;
+	Matrix4x4 m2(m4);
+	Matrix4x4 inv1 = m2.inverse();
+	Matrix4x4 ret2 = m2 * inv1;
 
-	if (ret2 == t2d::Matrix4x4::IDENTITY){
+	if (ret2 == Matrix4x4::IDENTITY){
 		int j = 0;
 	}
 
-	t2d::Matrix3x3 m1(
+	Matrix3x3 m1(
 		1, 0, 0,
 		0, 1, 0,
 		0, 0, 1
@@ -86,17 +86,17 @@ void init(){
 	m1(0, 0) = 2;
 
 	//m1 *= 2;
-	t2d::Quaternion q = angle_axis_to_quaternion(t2d::Vector3::kForward, 45);
-	t2d::Quaternion q1 = angle_axis_to_quaternion(t2d::Vector3::kForward, 60);
+	Quaternion q = angle_axis_to_quaternion(Vector3::kForward, 45);
+	Quaternion q1 = angle_axis_to_quaternion(Vector3::kForward, 60);
 	float diff = AngularDistance(q, q1);
 
-	t2d::Vector3 v1 = quaternion_to_euler(q);
+	Vector3 v1 = quaternion_to_euler(q);
 	float angle = RAD_TO_DEG(v1.z);
 
 	// Set the viewport
 	glViewport(0, 0, 800, 640);
 
-	program_id = Shader::load_shader("T2D/BlendVertexColor", eShaderProgram::kBlendVertexColorProgram);
+	shader = t2d::Shader::find("T2D/BlendVertexColor");
 
 	float vertices[] = {
 		// positions        // colors         // texture coords
@@ -132,7 +132,7 @@ void init(){
 	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
 	glEnableVertexAttribArray(2);
 	
-	texture = (Texture2D *)Resources::Instance()->load<Texture2D>("fish_4.pkm");
+	texture = (Texture2D *)t2d::Resources::Instance()->load<Texture2D>("fish_4.pkm");
 }
 
 void update(){
@@ -148,7 +148,7 @@ void draw(float dt){
 	// bind Texture
 	glBindTexture(GL_TEXTURE_2D, texture->texture_id());
 
-	glUseProgram(program_id);
+	shader->enable();
 
 	glBindVertexArray(VAO);
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);

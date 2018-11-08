@@ -12,9 +12,6 @@
 
 #include <string.h>
 #include "vector.h"
-#include "platform/platform_macros.h"
-
-__T2D_NS_MATH_BEGIN__
 
 ///Matrix3x3 ///////////////////////////////////////////////////////////////////////
 struct Matrix3x3
@@ -230,7 +227,7 @@ struct Matrix4x4
 
 	void print(const char *name) const;
 
-	static Matrix4x4 ortho(float left, float right, float bottom, float top);
+	static Matrix4x4 ortho(float left, float right, float bottom, float top, float near, float far);
 	static Matrix4x4 translate(const Vector3 &a);
 	static Matrix4x4 TRS(const Vector3 &t, const Vector3 &r, const Vector3 &s);
 
@@ -356,7 +353,5 @@ inline void Matrix4x4::identity(){
 	M[2][0] = 0.f; M[2][1] = 0.f; M[2][2] = 1.f; M[2][3] = 0.f;
 	M[2][0] = 0.f; M[2][1] = 0.f; M[2][2] = 0.f; M[2][3] = 1.f;
 }
-
-__T2D_NS_MATH_END__
 
 #endif //__T2D_ENGINE_MATH_MATRIX_H__

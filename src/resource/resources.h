@@ -11,16 +11,21 @@
 
 #include <unordered_map>
 #include <string>
-#include "utility/io/data_stream.h"
 #include "core/object.h"
 #include "texture2d.h"
+#include "platform/platform_macros.h"
+#include "utility/io/data_stream.h"
+#include "utility/misc/better_map.h"
+
+__T2D_NS_BEGIN__
 
 class Resources
 {
 public:
 	static Resources *Instance();
 
-	void Destorty();
+	void initialize_extra_resources();
+	void destorty();
 
 	template <typename T>
 	Object *load(const char *name){
@@ -49,7 +54,9 @@ private:
 private:
 	static Resources *instance_;
 
-	std::unordered_map <std::string, Object *> assets_;	
+	BetterMap<const char*, Object*> assets_;
 };
+
+__T2D_NS_END__
 
 #endif // __T2D_ENGINE_RESOURCES_H__

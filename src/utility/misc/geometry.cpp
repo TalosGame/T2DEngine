@@ -8,13 +8,11 @@
 
 #include "geometry.h"
 
-__T2D_NS_BEGIN__
-
 Rect::Rect(){}
 
 Rect::Rect(float x, float y, float w, float h) : x(x), y(y), width(w), height(h){}
 
-Rect::Rect(const t2d::Rect &rect) : x(rect.x), y(rect.y), width(rect.width), height(rect.height) {}
+Rect::Rect(const Rect &rect) : x(rect.x), y(rect.y), width(rect.width), height(rect.height) {}
 
 void Rect::set(float x, float y, float widht, float height){
 	this->x = x;
@@ -42,9 +40,7 @@ bool Rect::intersects_rect(const Rect& rect) const{
 	return true;
 }
 
-t2d::Rect& Rect::operator=(const t2d::Rect& rhs){
+Rect& Rect::operator=(const Rect& rhs){
 	this->set(rhs.x, rhs.y, rhs.width, rhs.height);
 	return *this;
 }
-
-__T2D_NS_END__

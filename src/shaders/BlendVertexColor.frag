@@ -1,5 +1,6 @@
-const char* t2dBlendVertexColor_frag = GLSL(300 es,
-	precision mediump float; 
+Shader "T2D/BlendVertexColor" {
+	#version 300 es
+	precision mediump float;
 	in vec3 v_ourColor;
 	in vec2 v_texCoord;
 	layout(location = 0) out vec4 outColor;
@@ -11,4 +12,4 @@ const char* t2dBlendVertexColor_frag = GLSL(300 es,
 	{
 		outColor = texture(s_texture, v_texCoord);
 	}
-);
+}

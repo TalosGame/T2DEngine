@@ -14,6 +14,7 @@
 #include "object.h"
 #include "platform/platform_def.h"
 #include "platform/platform_macros.h"
+#include "t2d_macros.h"
 
 __T2D_NS_BEGIN__
 

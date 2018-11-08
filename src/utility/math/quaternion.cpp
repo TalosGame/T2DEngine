@@ -8,8 +8,6 @@
 
 #include "quaternion.h"
 
-__T2D_NS_MATH_BEGIN__
-
 Quaternion::Quaternion(){}
 
 Quaternion::Quaternion(const Quaternion &q) : w(q.w), x(q.x), y(q.y), z(q.z){}
@@ -28,7 +26,3 @@ float AngularDistance(const Quaternion& lhs, const Quaternion& rhs){
 }
 
 const Quaternion Quaternion::identity = Quaternion(1.0f, 0.0f, 0.0f, 0.0f);
-
-
-
-__T2D_NS_MATH_END__

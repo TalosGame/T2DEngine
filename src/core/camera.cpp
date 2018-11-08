@@ -15,7 +15,7 @@ Camera::Camera(){
 }
 
 Camera::Camera(float pixel_width, float pixel_height) : pixel_rect_(0, 0, pixel_width, pixel_height){
-	orthoMatrix_ = Matrix4x4::ortho(0, pixel_width, 0, pixel_height);
+	//orthoMatrix_ = Matrix4x4::ortho(0, pixel_width, 0, pixel_height);
 }
 
 Camera::~Camera(){

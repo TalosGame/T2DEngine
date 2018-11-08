@@ -30,7 +30,7 @@ public:
 
 	//T2D::Rect rect;
 
-	GET_SET(Transform *, parent);
+	GET_SET(Transform*, parent);
 private:
 	Vector3 postion_;
 	Vector3 scale_;

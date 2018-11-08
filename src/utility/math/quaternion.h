@@ -9,12 +9,9 @@
 #ifndef __T2D_ENGINE_QUATERNION_H__
 #define __T2D_ENGINE_QUATERNION_H__
 
-#include "platform/platform_macros.h"
 #include "vector.h"
 #include "matrix.h"
 #include "mathf.h"
-
-__T2D_NS_MATH_BEGIN__
 
 struct Quaternion{
 public:
@@ -157,7 +154,5 @@ inline float Dot(const Quaternion& q1, const Quaternion& q2){
 }
 
 float AngularDistance(const Quaternion& lhs, const Quaternion& rhs);
-
-__T2D_NS_MATH_END__
 
 #endif // __T2D_ENGINE_QUATERNION_H__

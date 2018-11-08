@@ -48,6 +48,34 @@ size_t strcat_ext(char **dst_out, int num, ...){
     return len;
 }
 
+size_t index_of(const char* str, char search){
+	const char* ptr = strchr(str, search);
+	if (ptr == nullptr) return -1;
+
+	return ptr - str;
+}
+
+size_t index_of(const char* str, int index, char search){
+	const char* ptr = strchr(str + index, search);
+	if (ptr == nullptr) return -1;
+
+	return ptr - str;
+}
+
+size_t last_index_of(const char* str, char search){
+	const char* ptr = strrchr(str, search);
+	if (ptr == nullptr) return -1;
+
+	return ptr - str;
+}
+
+const char* substring(const char* str, int pos, int len){
+	char* ret = (char *)malloc(len + 1);
+	memset(ret, 0, len + 1);
+	memcpy(ret, str + pos, len);
+	return ret;
+}
+
 std::string &replace(std::string &str, const std::string &old_value, const std::string &new_value){
 	std::string::size_type pos = 0;
 	if ((pos = str.find(old_value)) != std::string::npos){

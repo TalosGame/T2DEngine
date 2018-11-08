@@ -11,8 +11,6 @@
 
 #include "platform/platform_macros.h"
 
-__T2D_NS_MATH_BEGIN__
-
 #define PI		 (3.141592654f)
 #define PI2		 (6.283185308f)
 #define PI_DIV_2 (1.570796327f)
@@ -51,7 +49,5 @@ bool approximately(float a, float b, float epsilon = EPSILON_E3);
 
 // private function define
 static void build_sin_cos_tables(void);
-
-__T2D_NS_MATH_END__
 
 #endif //__T2D_ENGINE_MATHF_H__

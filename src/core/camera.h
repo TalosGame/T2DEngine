@@ -11,6 +11,7 @@
 
 #include "component.h"
 #include "platform/platform_macros.h"
+#include "t2d_macros.h"
 #include "utility/math/matrix.h"
 #include "utility/misc/geometry.h"
 

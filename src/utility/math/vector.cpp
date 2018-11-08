@@ -10,8 +10,6 @@
 #include "mathf.h"
 #include "utility/log/xlog.h"
 
-__T2D_NS_MATH_BEGIN__
-
 Vector2::Vector2() {}
 
 Vector2::Vector2(float x, float y) : x(x), y(y) {}
@@ -363,5 +361,3 @@ const Vector3 Vector3::kRight = Vector3(1.0f, 0.0f, 0.0f);
 const Vector3 Vector3::kLeft = Vector3(-1.0f, 0.0f, 0.0f);
 const Vector3 Vector3::kForward = Vector3(0.0f, 0.0f, 1.0f);
 const Vector3 Vector3::kBack = Vector3(0.0f, 0.0f, -1.0f);
-
-__T2D_NS_MATH_END__

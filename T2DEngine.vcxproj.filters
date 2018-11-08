@@ -215,6 +215,12 @@
     <ClInclude Include="src\utility\math\quaternion.h">
       <Filter>src\utility\math</Filter>
     </ClInclude>
+    <ClInclude Include="src\t2d_macros.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\utility\misc\better_map.h">
+      <Filter>src\utility\misc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="res\fish_4.pkm">

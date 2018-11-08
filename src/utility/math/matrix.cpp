@@ -11,8 +11,6 @@
 #include "utility/log/xlog.h"
 #include "mathf.h"
 
-__T2D_NS_MATH_BEGIN__
-
 Matrix3x3::Matrix3x3(){}
 
 Matrix3x3::Matrix3x3(float src[3][3]){
@@ -244,11 +242,11 @@ Matrix4x4 Matrix4x4::inverse() const{
 					 0.0f, 0.0f, 0.0f, 1.0f);
 }
 
-Matrix4x4 Matrix4x4::ortho(float left, float right, float bottom, float top){
-	return Matrix4x4(2.0f / (right - left), 0.0f, 0.0f, -(right + left) / (right - left),
-					 0, 2.0f / (top - bottom), 0.0f, -(top + bottom) / (top - bottom),
-					 0.0f, 0.0f, 1.0f, 0.0f,
-					 0.0f, 0.0f, 0.0f, 1.0f);
+Matrix4x4 Matrix4x4::ortho(float left, float right, float bottom, float top, float near, float far){
+	return Matrix4x4(2.0f / (right - left), 0.0f,				   0.0f,				-(right + left) / (right - left),
+					 0,						2.0f / (top - bottom), 0.0f,				-(top + bottom) / (top - bottom),
+					 0.0f,					0.0f,				   2.0f / (far - near),	-(far + near) / (far - near),
+					 0.0f,					0.0f,				   0.0f,				1.0f);
 }
 
 Matrix4x4 Matrix4x4::translate(const Vector3 &a){
@@ -271,4 +269,3 @@ const Matrix4x4 Matrix4x4::IDENTITY = Matrix4x4(1.0f, 0.0f, 0.0f, 0.0f,
 												0.0f, 1.0f, 0.0f, 0.0f, 
 												0.0f, 0.0f, 1.0f, 0.0f,
 												0.0f, 0.0f, 0.0f, 1.0f);
-__T2D_NS_MATH_END__
