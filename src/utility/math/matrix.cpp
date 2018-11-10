@@ -113,7 +113,7 @@ Matrix3x3 Matrix3x3::inverse() const{
 					 (m00 * m11 - m10 * m01) * det_inv);
 }
 
-void Matrix3x3::print(const char *name) const{
+void Matrix3x3::print(const char* name) const{
 	// prints out a 3x3 matrix
 	log_error("\n%s=\n", name);
 

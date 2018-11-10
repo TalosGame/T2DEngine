@@ -24,7 +24,7 @@ protected:
 };
 
 // private function define ///////////////////////////////////////////////
-static bool WinCreate(Device *device, const char *title);
+static bool WinCreate(Device *device, const char* title);
 static LRESULT CALLBACK window_proc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
 static void center_window(EGLNativeWindowType hwnd, RECT *client_rect, uint32 width, uint32 height);
 

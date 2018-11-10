@@ -22,13 +22,13 @@ __T2D_NS_BEGIN__
 class Resources
 {
 public:
-	static Resources *Instance();
+	static Resources* Instance();
 
 	void initialize_extra_resources();
 	void destorty();
 
 	template <typename T>
-	Object *load(const char *name){
+	Object *load(const char* name){
 		if (typeid(T) == typeid(Texture2D)){
 			return load_texture(name);
 		}
@@ -45,14 +45,14 @@ private:
 	Resources();
 	~Resources();
 
-	Object *load_texture(const char *name);
-	bool is_etc2_format(DataStream *ds);
-	bool read_etc2_head(DataStream *ds, ETC2HeaderPtr header_ptr);
+	Object *load_texture(const char* name);
+	bool is_etc2_format(DataStream* ds);
+	bool read_etc2_head(DataStream* ds, ETC2HeaderPtr header_ptr);
 
-	bool contains(const char *name);
+	bool contains(const char* name);
 
 private:
-	static Resources *instance_;
+	static Resources* instance_;
 
 	BetterMap<const char*, Object*> assets_;
 };

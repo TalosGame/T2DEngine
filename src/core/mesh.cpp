@@ -18,7 +18,7 @@ Mesh::Mesh(const char* name){
 
 Mesh::~Mesh(){}
 
-void Mesh::set_name(const char *name){
+void Mesh::set_name(const char* name){
 	this->name_ = name;
 }
 

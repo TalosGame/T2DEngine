@@ -16,8 +16,8 @@ public:
 	FileStream();
 	virtual ~FileStream();
 
-	bool open(const char *path, const char *model);
-	const char *read_buffer();
+	bool open(const char* path, const char* model);
+	const char* read_buffer();
 	void close();
 
 private:

@@ -26,7 +26,7 @@ public:
 class ShaderProgram
 {
 public: 
-	static ShaderSource* load_shader_program(const char *name);
+	static ShaderSource* load_shader_program(const char* name);
 	static ShaderSource* get_source(const char* name);
 
 private:

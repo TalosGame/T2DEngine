@@ -27,7 +27,7 @@ public:
 
 	//virtual void Update() = 0;
 
-	GET_SET(GameObject *, game_object);
+	GET_SET(GameObject*, game_object);
 
 private:
 };

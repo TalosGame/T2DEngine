@@ -26,7 +26,7 @@ GLuint VBO, VAO, EBO;
 t2d::Shader* shader;
 
 void init(){
-// 	GameObject *go = new GameObject("ss");
+// 	GameObject* go = new GameObject("ss");
 // 	go->add_component<Camera>();
 // 	go->add_component<Texture2D>();
 // 

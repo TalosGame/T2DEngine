@@ -15,7 +15,7 @@ class Application{
 public:
 	static void Init(uint32 screen_width, uint32 screen_height);
 
-	static char *search_asset_path(const char *name);
+	static char *search_asset_path(const char* name);
 	static uint32 screen_width();
 	static uint32 screen_height();
 

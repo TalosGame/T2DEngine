@@ -15,7 +15,7 @@ Color::Color() : r_(0), g_(0), b_(0), a_(1.0f){}
 
 Color::Color(float r, float g, float b, float a) : r_(r), g_(g), b_(b), a_(a) {}
 
-Color::Color(const Color &color) : r_(color.r_), g_(color.g_), b_(color.b_), a_(color.a_){}
+Color::Color(const Color& color) : r_(color.r_), g_(color.g_), b_(color.b_), a_(color.a_){}
 
 bool Color::operator==(const Color& right) const{
 	return (this->r_ == right.r_ && this->g_ == right.g_ && this->b_ == right.b_ && this->a_ == right.a_);
@@ -25,19 +25,19 @@ bool Color::operator!=(const Color& right) const{
 	return !(*this == right);
 }
 
-Color operator-(const Color &c1, const Color &c2){
+Color operator-(const Color& c1, const Color& c2){
 	return Color(c1.r_ - c2.r_, c1.g_ - c2.g_, c1.b_ - c2.b_, c1.a_ - c2.a_);
 }
 
-Color operator+(const Color &c1, const Color &c2){
+Color operator+(const Color& c1, const Color& c2){
 	return Color(c1.r_ + c2.r_, c1.g_ + c2.g_, c1.b_ + c2.b_, c1.a_ + c2.a_);
 }
 
-Color operator*(const Color &c1, const Color &c2){
+Color operator*(const Color& c1, const Color& c2){
 	return Color(c1.r_ * c2.r_, c1.g_ * c2.g_, c1.b_ * c2.b_, c1.a_ * c2.a_);
 }
 
-Color operator/(const Color &c1, const Color &c2){
+Color operator/(const Color& c1, const Color& c2){
 	return Color(c1.r_ / c2.r_, c1.g_ / c2.g_, c1.b_ / c2.b_, c1.a_ / c2.a_);
 }
 
@@ -46,7 +46,7 @@ Color32::Color32() : r_(0), g_(0), b_(0), a_(255) {}
 
 Color32::Color32(uint8 r, uint8 g, uint8 b, uint8 a) : r_(r), g_(g), b_(b), a_(a) {}
 
-Color32::Color32(const Color32 &color) : r_(color.r_), g_(color.g_), b_(color.b_), a_(color.a_){}
+Color32::Color32(const Color32& color) : r_(color.r_), g_(color.g_), b_(color.b_), a_(color.a_){}
 
 bool Color32::operator==(const Color32& right) const{
 	return (this->r_ == right.r_ && this->g_ == right.g_ && this->b_ == right.b_ && this->a_ == right.a_);
@@ -56,19 +56,19 @@ bool Color32::operator!=(const Color32& right) const{
 	return !(*this == right);
 }
 
-Color32 operator-(const Color32 &c1, const Color32 &c2){
+Color32 operator-(const Color32& c1, const Color32& c2){
 	return Color32(c1.r_ - c2.r_, c1.g_ - c2.g_, c1.b_ - c2.b_, c1.a_ - c2.a_);
 }
 
-Color32 operator+(const Color32 &c1, const Color32 &c2){
+Color32 operator+(const Color32& c1, const Color32& c2){
 	return Color32(c1.r_ + c2.r_, c1.g_ + c2.g_, c1.b_ + c2.b_, c1.a_ + c2.a_);
 }
 
-Color32 operator*(const Color32 &c1, const Color32 &c2){
+Color32 operator*(const Color32& c1, const Color32& c2){
 	return Color32(c1.r_ * c2.r_, c1.g_ * c2.g_, c1.b_ * c2.b_, c1.a_ * c2.a_);
 }
 
-Color32 operator/(const Color32 &c1, const Color32 &c2){
+Color32 operator/(const Color32& c1, const Color32& c2){
 	return Color32(c1.r_ / c2.r_, c1.g_ / c2.g_, c1.b_ / c2.b_, c1.a_ / c2.a_);
 }
 

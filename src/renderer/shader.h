@@ -33,7 +33,7 @@ public:
 	
 	static Shader* find(const char* shader_name);
 
-	static bool release_shader(const std::string &shader_name);
+	static bool release_shader(const std::string& shader_name);
 	static bool release_shader(const GLuint program);
 	static void release_all();
 	
@@ -41,7 +41,7 @@ private:
 	Shader(GLuint program_id);
 	virtual ~Shader();
 
-	static GLuint create_shader(const char *source, eShaderType type);
+	static GLuint create_shader(const char* source, eShaderType type);
 	static bool create_program(GLuint vertex_shader, GLuint frag_shader, GLuint *ret);
 
 private:

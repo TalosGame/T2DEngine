@@ -75,7 +75,7 @@ void WindowDevice::game_loop(){
 	}
 }
 
-bool WinCreate(Device *device, const char *title){
+bool WinCreate(Device *device, const char* title){
 	WNDCLASS wndclass = { 0 };
 	DWORD    wStyle = 0;
 	HINSTANCE hInstance = GetModuleHandle(NULL);

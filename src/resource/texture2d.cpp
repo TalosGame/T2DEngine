@@ -12,14 +12,14 @@ Texture2D::~Texture2D(){
 
 }
 
-bool Texture2D::LoadData(const uint8 *data, uint32 width, uint32 height, GLsizei size){
+bool Texture2D::LoadData(const uint8* data, uint32 width, uint32 height, GLsizei size){
 	glGenTextures(1, &texture_id_);
 	glBindTexture(GL_TEXTURE_2D, this->texture_id_);
 
 	this->width_ = width;
 	this->height_ = height;
 
-// 	const char * extensions = (const char*)glGetString(GL_EXTENSIONS);
+// 	const char*  extensions = (const char*)glGetString(GL_EXTENSIONS);
 // 	printf("%s", extensions);
 // 	bool support = (strstr(extensions, "GL_COMPRESSED_RGBA8_ETC2_EAC") ? true : false);
 
@@ -45,7 +45,7 @@ uint32 Texture2D::texture_id(){
 }
 
 /*
-void Texture2D::LoadData(const uint8 *data, ETC2HeaderPtr header){
+void Texture2D::LoadData(const uint8* data, ETC2HeaderPtr header){
 	
     this->width_ = header->m_u32PixelWidth;
     this->height_ = header->m_u32PixelHeight;

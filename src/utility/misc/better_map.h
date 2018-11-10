@@ -13,7 +13,7 @@
 
 struct compare
 {
-	bool operator()(const char *s1, const char *s2) const
+	bool operator()(const char* s1, const char* s2) const
 	{
 		return std::strcmp(s1, s2) == 0;
 	}
@@ -21,7 +21,7 @@ struct compare
 
 struct hash_func
 {
-	size_t operator()(const char *str) const
+	size_t operator()(const char* str) const
 	{
 		//BKDR hash algorithm
 		int seed = 131;//31  131 1313 13131131313 etc//

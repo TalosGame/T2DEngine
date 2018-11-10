@@ -15,7 +15,7 @@
 static FILE *fp_error;
 static char error_filename[80];
 
-int open_error_file(const char *filename, FILE *fp_override){
+int open_error_file(const char* filename, FILE *fp_override){
 	if (fp_override != nullptr){
 		fp_error = fp_override;
 	}else{
@@ -53,7 +53,7 @@ int close_error_file(void){
 	return ret;
 }
 
-int log_error(const char *format, ...){
+int log_error(const char* format, ...){
 	if (fp_error == nullptr || format == nullptr) return -1;
 
 	char buffer[1024];
@@ -70,7 +70,7 @@ int log_error(const char *format, ...){
 	return 0;
 }
 
-int log_assert(const char *expr_str, bool expr, const char *msg){
+int log_assert(const char* expr_str, bool expr, const char* msg){
 	if (fp_error == nullptr || expr) return -1;
 
 	char buffer[1024];

@@ -49,7 +49,7 @@ struct Matrix3x3
 	Matrix3x3 inverse() const;
 	void identity();
 
-	void print(const char *name) const;
+	void print(const char* name) const;
 
 	union {
 		float M[3][3];
@@ -225,7 +225,7 @@ struct Matrix4x4
 	Matrix4x4 inverse() const;
 	void identity();
 
-	void print(const char *name) const;
+	void print(const char* name) const;
 
 	static Matrix4x4 ortho(float left, float right, float bottom, float top, float near, float far);
 	static Matrix4x4 translate(const Vector3 &a);

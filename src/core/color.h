@@ -14,7 +14,7 @@
 struct Color{
 	Color();
 	Color(float r, float g, float b, float a);
-	Color(const Color &color);
+	Color(const Color& color);
 
 	float r_;
 	float g_;
@@ -38,7 +38,7 @@ struct  Color32
 {
 	Color32();
 	Color32(uint8 r, uint8 g, uint8 b, uint8 a);
-	Color32(const Color32 &color);
+	Color32(const Color32& color);
 
 	uint8 r_;
 	uint8 g_;
@@ -58,14 +58,14 @@ struct  Color32
 	bool operator!=(const Color32& right) const;
 };
 
-Color operator-(const Color &c1, const Color &c2);
-Color operator+(const Color &c1, const Color &c2);
-Color operator*(const Color &c1, const Color &c2);
-Color operator/(const Color &c1, const Color &c2);
+Color operator-(const Color& c1, const Color& c2);
+Color operator+(const Color& c1, const Color& c2);
+Color operator*(const Color& c1, const Color& c2);
+Color operator/(const Color& c1, const Color& c2);
 
-Color32 operator-(const Color32 &c1, const Color32 &c2);
-Color32 operator+(const Color32 &c1, const Color32 &c2);
-Color32 operator*(const Color32 &c1, const Color32 &c2);
-Color32 operator/(const Color32 &c1, const Color32 &c2);
+Color32 operator-(const Color32& c1, const Color32& c2);
+Color32 operator+(const Color32& c1, const Color32& c2);
+Color32 operator*(const Color32& c1, const Color32& c2);
+Color32 operator/(const Color32& c1, const Color32& c2);
 
 #endif // __T2D_ENGINE_COLOR_H__

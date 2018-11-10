@@ -25,7 +25,7 @@ public:
 	Mesh(const char* name);
 	virtual ~Mesh();
 
-	void set_name(const char *name);
+	void set_name(const char* name);
 	void set_vertices(std::vector<Vector3> &vertices);
 	void set_uv(std::vector<Vector2> &uv);
 	void set_triangles(std::vector<uint32> &triangles);

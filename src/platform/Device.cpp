@@ -117,7 +117,7 @@ bool Device::set_up_device(uint32 width, uint32 height, uint32 flags) {
 EGLint Device::GetContextRenderableType(EGLDisplay eglDisplay)
 {
 #ifdef EGL_KHR_create_context
-	const char *extensions = eglQueryString(eglDisplay, EGL_EXTENSIONS);
+	const char* extensions = eglQueryString(eglDisplay, EGL_EXTENSIONS);
 
 	// check whether EGL_KHR_create_context is in the extension string
 	if (extensions != NULL && strstr(extensions, "EGL_KHR_create_context"))

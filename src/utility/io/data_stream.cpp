@@ -24,7 +24,7 @@ DataStream::~DataStream(){
 	this->buffer_ = nullptr;
 }
 
-bool DataStream::read_from_file(const char *name){
+bool DataStream::read_from_file(const char* name){
 	char *path = Application::search_asset_path(name);
 	if (path == nullptr){
 		return false;
@@ -40,7 +40,7 @@ bool DataStream::read_from_file(const char *name){
 	size_t size = ftell(fp);
 	fseek(fp, 0, SEEK_SET);
 
-	this->buffer_ = (uint8 *)malloc((size)* sizeof(uint8));
+	this->buffer_ = (uint8* )malloc((size)* sizeof(uint8));
 	this->buffer_len_ = fread((char *)buffer_, 1, size, fp);
 	
 	fclose(fp);
@@ -54,7 +54,7 @@ bool DataStream::read_from_file(const char *name){
 	return true;
 }
 
-uint8 *DataStream::buffer(){
+uint8* DataStream::buffer(){
 	return this->buffer_;
 }
 
@@ -78,7 +78,7 @@ void DataStream::seek(size_t len){
 	this->offset_ += len;
 }
 
-bool DataStream::read_byte(uint8 *value, size_t len){
+bool DataStream::read_byte(uint8* value, size_t len){
 	if (!check_data(len)){
 		return false;
 	}
@@ -89,13 +89,13 @@ bool DataStream::read_byte(uint8 *value, size_t len){
 	return true;
 }
 
-bool DataStream::read_byte(uint8 **value, size_t len){
+bool DataStream::read_byte(uint8* *value, size_t len){
 	size_t read_len = (len == -1 ? buffer_len_ - offset_ : len );
 	if (!check_data(read_len)){
 		return false;
 	}
 
-	uint8 *data = (uint8 *)malloc(sizeof(uint8) * read_len);
+	uint8* data = (uint8* )malloc(sizeof(uint8) * read_len);
 	memcpy(data, buffer_ + offset_, read_len);
 
 	*value = data;

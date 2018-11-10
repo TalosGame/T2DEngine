@@ -37,8 +37,8 @@ Shader* Shader::find(const char* shader_name){
 	ShaderSource *source = ShaderProgram::get_source(shader_name);
 	TD_ASSERT(source != nullptr, "Get shader resource error!");
 
-	const char *vert_source = source->vertex_shader_;
-	const char *frag_source = source->fragment_shader_;
+	const char* vert_source = source->vertex_shader_;
+	const char* frag_source = source->fragment_shader_;
 
 	GLuint vertex_shader = Shader::create_shader(vert_source, eShaderType::kVertexShader);
 	if (vertex_shader == 0) return nullptr;
@@ -59,7 +59,7 @@ Shader* Shader::find(const char* shader_name){
 	return shader;
 }
 
-GLuint Shader::create_shader(const char *source, eShaderType type){
+GLuint Shader::create_shader(const char* source, eShaderType type){
 	if (source == nullptr){
 		log_error("Invalid shader source!");
 		return 0;
@@ -101,7 +101,7 @@ bool Shader::create_program(GLuint vertex_shader, GLuint frag_shader, GLuint *re
 	return true;
 }
 
-bool Shader::release_shader(const std::string &shader_name){
+bool Shader::release_shader(const std::string& shader_name){
 	return false;
 }
 

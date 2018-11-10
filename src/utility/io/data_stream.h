@@ -18,9 +18,9 @@ public:
 	DataStream();
 	virtual ~DataStream();
 
-	bool read_from_file(const char *name);
+	bool read_from_file(const char* name);
 
-	uint8 *buffer();
+	uint8* buffer();
 	size_t buffer_len();
 	size_t readable_bytes();
 	void mark_read_index();
@@ -28,15 +28,15 @@ public:
 
 	void seek(size_t len);
 
-	bool read_byte(uint8 *value, size_t len);
-	bool read_byte(uint8 **value, size_t len = -1);
+	bool read_byte(uint8* value, size_t len);
+	bool read_byte(uint8* *value, size_t len = -1);
 	bool read_uint16(uint16 *value, bool big_endian = false);
 
 private:
 	bool check_data(size_t len);
 
 private:
-	uint8 *buffer_;
+	uint8* buffer_;
 	size_t buffer_len_;
 	size_t offset_;
 	size_t mark_index_;

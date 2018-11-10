@@ -18,7 +18,7 @@ FileStream::~FileStream(){
 	close();
 }
 
-bool FileStream::open(const char *name, const char *model){
+bool FileStream::open(const char* name, const char* model){
 	TD_ASSERT(name != nullptr, "Invalid name");
 
 	fp_ = fopen(name, model);
@@ -30,7 +30,7 @@ bool FileStream::open(const char *name, const char *model){
 	return true;
 }
 
-const char *FileStream::read_buffer(){
+const char* FileStream::read_buffer(){
 	if (fp_ == nullptr) return nullptr;
 
 	fseek(fp_, 0, SEEK_END);

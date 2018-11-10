@@ -26,7 +26,7 @@ ShaderSource* ShaderProgram::get_source(const char* name){
 	return nullptr;
 }
 
-ShaderSource* ShaderProgram::load_shader_program(const char *name){
+ShaderSource* ShaderProgram::load_shader_program(const char* name){
 	char shader_path[100];
 	ShaderSource *source = new ShaderSource();
 	sprintf_s(shader_path, "src\\shaders\\%s.vert", name);

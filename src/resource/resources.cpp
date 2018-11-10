@@ -19,13 +19,13 @@ static const char* kShaderNames[] = {
 	"BlendVertexColor",
 };
 
-Resources *Resources::instance_ = nullptr;
+Resources* Resources::instance_ = nullptr;
 
 Resources::Resources(){}
 
 Resources::~Resources(){}
 
-Resources *Resources::Instance(){
+Resources* Resources::Instance(){
 	if (instance_ == nullptr){
 		instance_ = new Resources();
 	}
@@ -46,7 +46,7 @@ void Resources::destorty(){
 
 }
 
-Object *Resources::load_texture(const char *name){
+Object *Resources::load_texture(const char* name){
 	if (contains(name)){
 		return assets_[name];
 	}
@@ -65,7 +65,7 @@ Object *Resources::load_texture(const char *name){
 		return nullptr;
 	}
 
-	uint8 *data = nullptr;
+	uint8* data = nullptr;
 	ds.read_byte(&data);
 	if (data == nullptr){
 		log_error("Read texture data error!");
@@ -81,7 +81,7 @@ Object *Resources::load_texture(const char *name){
 	return (Object *)tex;
 }
 
-bool Resources::is_etc2_format(DataStream *ds){
+bool Resources::is_etc2_format(DataStream* ds){
 	if (ds->buffer_len() < etc2_pkm::ETC2_PKM_HEADER_SIZE) {
 		return false;
 	}
@@ -93,7 +93,7 @@ bool Resources::is_etc2_format(DataStream *ds){
 	return true;
 }
 
-bool Resources::read_etc2_head(DataStream *ds, ETC2HeaderPtr header_ptr){
+bool Resources::read_etc2_head(DataStream* ds, ETC2HeaderPtr header_ptr){
 	ds->seek(etc2_pkm::ETC2_PKM_FORMAT_OFFSET);
 
 	ds->read_uint16(&header_ptr->format, true);
@@ -107,7 +107,7 @@ bool Resources::read_etc2_head(DataStream *ds, ETC2HeaderPtr header_ptr){
 		header_ptr->encoded_height >= header_ptr->height && header_ptr->encoded_height - header_ptr->height < 4;
 }
 
-bool Resources::contains(const char *name){
+bool Resources::contains(const char* name){
 	if (assets_.find(name) != assets_.end()){
 		return true;
 	}
@@ -118,7 +118,7 @@ bool Resources::contains(const char *name){
 __T2D_NS_END__
 
 /*
-Texture2D *Resources::Load(const char *name){
+Texture2D *Resources::Load(const char* name){
 //    Object ret = asset_map_[name];
 //    if(ret != nullptr){
 //        return ret;
@@ -149,7 +149,7 @@ Texture2D *Resources::Load(const char *name){
     uint32 dataSize = 0;
 	fread((char *)&dataSize, sizeof(uint32), 1, file);
 
-    uint8 *data = (uint8 *)malloc(dataSize * sizeof(uint8));
+    uint8* data = (uint8* )malloc(dataSize * sizeof(uint8));
 	ret = fread((char *)data, 1, dataSize, file);
     if(ret != dataSize){
         write_error("[Resources] read etc2 texture header error!");
